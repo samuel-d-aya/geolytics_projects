@@ -3,7 +3,7 @@ import scrapy
 import datetime
 import calendar
 
-# "https://api.hugoboss.eu/s/GLOBAL/dw/shop/v22_10/stores?client_id=871c988f-3549-4d76-b200-8e33df5b45ba&latitude=28.2385793242012&longitude=133.73876232446136&count=100&maxDistance=4184.8432178871135&distanceUnit=km&start=0"
+# "https://api.hugoboss.eu/s/GLOBAL/dw/shop/v22_10/stores?client_id=871c988f-3549-4d76-b200-8e33df5b45ba&latitude=31.60403597768415&longitude=137.15386460000002&count=100&maxDistance=5462.561151093578&distanceUnit=km&start=0"
 
 
 class HugoSpider(scrapy.Spider):
@@ -13,10 +13,10 @@ class HugoSpider(scrapy.Spider):
 
     params = {
         "client_id": "871c988f-3549-4d76-b200-8e33df5b45ba",
-        "latitude": "28.2385793242012",
-        "longitude": "133.73876232446136",
+        "latitude": "31.60403597768415",
+        "longitude": "137.15386460000002",
         "count": "100",
-        "maxDistance": "4184.8432178871135",
+        "maxDistance": "5462.561151093578",
         "distanceUnit": "km",
         "start": "0",
     }
@@ -56,7 +56,7 @@ class HugoSpider(scrapy.Spider):
                         store.get("c_type"): {
                             calendar.day_name[
                                 int(day_num) - 1
-                            ]: f"{whours[0]}-{whours[1]}"
+                            ][:3]: f"{whours[0]}-{whours[1]}"
                             for day_num, whours in json.loads(
                                 store.get("store_hours")
                             ).items()
