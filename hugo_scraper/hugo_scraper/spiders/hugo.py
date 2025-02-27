@@ -71,3 +71,5 @@ class HugoSpider(scrapy.Spider):
                 "state": store.get("state_code"),
                 "website": f"https://www.hugoboss.com/store#lat={store.get("latitude")}&lng={store.get("longitude")}",
             }
+
+
