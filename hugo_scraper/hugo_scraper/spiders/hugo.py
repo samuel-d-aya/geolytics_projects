@@ -38,14 +38,14 @@ class HugoSpider(scrapy.Spider):
             print(store.get("store_hours"))
             yield {
                 "addr_full": store.get("address1"),
-                "brand": store.get("c_brands"),
+                "brand":"Hugo Boss",
                 "city": store.get("city"),
                 "country": store.get("country_code"),
                 "extras": {
                     "brand": store.get("c_brands"),
                     "fascia": store.get("c_type"),
                     "category": store.get("c_categories"),
-                    "edit_date": datetime.datetime.now(),
+                    "edit_date": datetime.datetime.now().strftime('%Y%m%d'),
                     "lat_lon_source": "website",
                 },
                 "lat": store.get("latitude"),

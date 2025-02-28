@@ -2,8 +2,7 @@ import json
 import random
 import datetime
 import scrapy
-from googletrans import Translator
-import time
+import calendar
 from scrapy_playwright.page import PageMethod
 from playwright_stealth import stealth_async
 from scrapy.selector import Selector
@@ -15,7 +14,6 @@ class BrunellSpider(scrapy.Spider):
     start_urls = [
         "https://shop.brunellocucinelli.com/on/demandware.store/Sites-bc-us-Site/en_US/Stores-findBoutiques"
     ]
-    translator = Translator()
 
     params = {"countryCode": "JP"}
 
@@ -37,82 +35,6 @@ class BrunellSpider(scrapy.Spider):
             callback=self.parse,
             errback=self.errback,
         )
-        
-    def translate_text(self, text, retries=3):
-        """Translate text with retry mechanism"""
-        if not text or not text.strip():
-            return ""
-            
-        for attempt in range(retries):
-            try:
-                # Delay to avoid hitting rate limits
-                time.sleep(1)
-                result = self.translator.translate(text, src='ja', dest='en')
-                return result.text
-            except Exception as e:
-                if attempt == retries - 1:  # Last attempt
-                    self.logger.error(f"Translation failed for text '{text}': {str(e)}")
-                    return text  # Return original text if translation fails
-                time.sleep(2)  # Wait before retrying
-        return text
-    
-    def translate_store_data(self, store):
-        """Translate store data fields"""
-        try:
-            address_en = self.translate_text(store.get("address1", ""))
-            hours_raw = store.get("storeHours", "").replace("<br>", "").strip()
-            opening_hours = {}
-            if hours_raw and ":" in hours_raw:
-                days, times = hours_raw.split(":", 1)
-                opening_hours[days.strip()] = times.strip()
-            
-            return {
-                    "addr_full": address_en,
-                    "brand": "brunellocucinelli",
-                    "city": store.get("city", ""),
-                    "country": store.get("country", ""),
-                    "extras": {
-                        "brand": "brunellocucinelli",
-                        "fascia": "",
-                        "category": "",
-                        "edit_date": datetime.datetime.now().isoformat(),
-                        "lat_lon_source": "website",
-                    },
-                    "lat": store.get("markers", {}).get("lat", ""),
-                    "long": store.get("markers", {}).get("long", ""),
-                    "name": store.get("name", ""),
-                    "opening_hours": opening_hours,
-                    "phone": store.get("phone", ""),
-                    "postcode": store.get("postalCode", ""),
-                    "ref": store.get("ID", ""),
-                    "state": "",
-                    "website": store.get("url", ""),
-            }
-        except Exception as e:
-            self.logger.error(f"Translation error: {str(e)}")
-            # Return data without translation if translation fails
-            return {
-                    "addr_full": store.get("address1", ""),
-                    "brand": "brunellocucinelli",
-                    "city": store.get("city", ""),
-                    "country": store.get("country", ""),
-                    "extras": {
-                        "brand": "brunellocucinelli",
-                        "fascia": "",
-                        "category": "",
-                        "edit_date": datetime.datetime.now().isoformat(),
-                        "lat_lon_source": "website",
-                    },
-                    "lat": store.get("markers", {}).get("lat", ""),
-                    "long": store.get("markers", {}).get("long", ""),
-                    "name": store.get("name", ""),
-                    "opening_hours": opening_hours,
-                    "phone": store.get("phone", ""),
-                    "postcode": store.get("postalCode", ""),
-                    "ref": store.get("ID", ""),
-                    "state": "",
-                    "website": store.get("url", ""),
-            }
 
     async def parse(self, response):
         page = response.meta.get("playwright_page")
@@ -151,9 +73,42 @@ class BrunellSpider(scrapy.Spider):
             return
 
         for store in data.get("filterList", []):
-            store_item = self.translate_store_data(store)
+            try:
 
-            yield store_item
+                hours_raw = store.get("storeHours", "").replace("<br>", "").strip()
+                opening_hours = {}
+                if "Monday-Sunday" in hours_raw:
+                    times = hours_raw.split(":", 1)[1].strip() if ":" in hours_raw else ""
+                    # Create entry for each day with the same hours
+                    for i in range(7):
+                        opening_hours[calendar.day_name[i][:3]] = times
+
+                yield {
+                    "addr_full": store.get("address1", ""),
+                    "brand": "brunellocucinelli",
+                    "city": store.get("city", ""),
+                    "country": store.get("country", ""),
+                    "extras": {
+                        "brand": "brunellocucinelli",
+                        "fascia": "brunellocucinelli",
+                        "category": "Fashion",
+                        "edit_date": datetime.datetime.now().strftime('%Y%m%d'),
+                        "lat_lon_source": "website",
+                    },
+                    "lat": store.get("markers", {}).get("lat", ""),
+                    "long": store.get("markers", {}).get("long", ""),
+                    "name": store.get("name", ""),
+                    "opening_hours": opening_hours,
+                    "phone": store.get("phone", ""),
+                    "postcode": store.get("postalCode", ""),
+                    "ref": store.get("ID", ""),
+                    "state": "",
+                    "website": store.get("url", ""),
+                }
+            except Exception as e:
+                self.logger.error(
+                    f"Error processing store {store.get('name', 'Unknown')}: {str(e)}"
+                )
 
     async def errback(self, failure):
         page = failure.request.meta.get("playwright_page")

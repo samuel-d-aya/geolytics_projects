@@ -110,7 +110,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-FEED_EXPORT_ENCODING = "utf-8"
+FEED_FORMAT = 'csv'
+FEED_URI = 'output/brunell_stores.csv'  # Saves the CSV file in the 'output' folder
+FEED_EXPORT_ENCODING = 'utf-8-sig'
 
 
 DOWNLOAD_HANDLERS = {
