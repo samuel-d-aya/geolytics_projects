@@ -41,7 +41,7 @@ class ArrowSpider(scrapy.Spider):
                     "brand": brand_data.get(store.get("eBrId")).get("brandName"),
                     "fascia": brand_data.get(store.get("eBrId")).get("brandNameKana"),
                     "category": "Fashion",
-                    "edit_date": datetime.datetime.now(),
+                    "edit_date": datetime.datetime.now().strftime('%Y%m%d'),
                     "lat_lon_source": "website",
                 },
                 "lat": store.get("point_x"),
