@@ -44,8 +44,8 @@ class ArrowSpider(scrapy.Spider):
                     "edit_date": datetime.datetime.now().strftime('%Y%m%d'),
                     "lat_lon_source": "website",
                 },
-                "lat": store.get("point_x"),
-                "lon": store.get("point_y"),
+                "lat": store.get("point_y"),
+                "lon": store.get("point_x"),
                 "name": store.get("name"),
                 "opening_hours": self.parse_working_hours(store.get("open_en")),
                 "phone": re.findall(
@@ -54,7 +54,7 @@ class ArrowSpider(scrapy.Spider):
                 "postcode": store.get("address_num"),
                 "ref": store.get("shopnum"),
                 "state": store.get("area2"),
-                "website": store.get("url1"),
+                "website": "https://store.united-arrows.co.jp/stores/map.html",
             }
 
     def parse_working_hours(self, opening_hours):
@@ -67,11 +67,13 @@ class ArrowSpider(scrapy.Spider):
                 "Mon": opening_hours,
                 "Tue": opening_hours,
                 "Wed": opening_hours,
-                "Thur": opening_hours,
+                "Thu": opening_hours,
                 "Fri": opening_hours,
                 "Sat": opening_hours,
                 "Sun": opening_hours,
             }
         }
             
-        return {opening_hours}
+        return {
+            "opening_hours": {}
+        }
