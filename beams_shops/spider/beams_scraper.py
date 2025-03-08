@@ -9,6 +9,8 @@ class BeamsShopSpider(scrapy.Spider):
     
     start_urls = ['https://www.beams.co.jp/global/api/shop']
     
+    base_url = 'https://www.beams.co.jp'
+    
     custom_settings = {
         'ROBOTSTXT_OBEY': True,
         'CONCURRENT_REQUESTS': 1,
@@ -35,28 +37,24 @@ class BeamsShopSpider(scrapy.Spider):
             with open('beams_response.json', 'w', encoding='utf-8') as f:
                 json.dump(response_data, f, indent=2, ensure_ascii=False)
             
-            # Iterate over areas and sub-areas to get the shops
             for area_name, areas in response_data['data'].items():
                 for sub_area_name, shops in areas.items():
                     for shop in shops:
                         shop_item = {
                             'city': area_name,
-                            'sub_area': sub_area_name,
                             'address_en': shop.get('address_en', ''),
                             'country': "Japan",
-                            'shop_id': shop.get('id', ''),
-                            'shop_name_en': shop.get('name_en', ''),
+                            'ref': shop.get('id', ''),
+                            'name': shop.get('name_en', ''),
                              "extras": {
                                     "brand": "Beams",
                                     "fascia": "Beams",
                                     "category": "Retail",
                                     "edit_date": datetime.now().strftime('%Y%m%d'),
-                                    'description_en': shop.get('description_en', ''),
                                     "lat_lon_source": "thirdparty",
                                 },
-                            'tel': shop.get('tel_en', ''),
-                            'url_param': shop.get('url_param', ''),
-                            'link_url': shop.get('link_url', ''),
+                            'phone': shop.get('tel_en', ''),
+                            'website': self.base_url + shop.get('link_url', ''),
                         }
 
                         # Follow the link to get more details
@@ -66,7 +64,7 @@ class BeamsShopSpider(scrapy.Spider):
                             yield scrapy.Request(
                                 url=detail_url,
                                 callback=self.parse_shop_details,
-                                meta={'shop_item': shop_item}  # Pass shop data to parse_shop_details
+                                meta={'shop_item': shop_item} 
                             )
                         else:
                             
@@ -80,33 +78,16 @@ class BeamsShopSpider(scrapy.Spider):
     def parse_shop_details(self, response):
         
         self.logger.info(f"Parsing details for {response.url}")
-        # Get the shop_item from meta
         shop_item = response.meta['shop_item']
         
-        # Extract detailed information from the HTML page
-        # Address
-        address = response.css('dl:contains("Address") dd::text').get()
-        if address:
-            shop_item['address_en'] = address.strip()
-        
-        # Telephone number
-        tel = response.css('dl:contains("Tel") dd::text').get()
-        if tel:
-            shop_item['tel'] = tel.strip()
+    
         
         # Opening hours
         hours = response.css('dl:contains("Hours") dd::text').get()
         if hours:
             shop_item['hours'] = hours.strip()
         
-        # Service offerings 
-        services = []
-        for service in response.css('dl.service li'):
-            service_name = service.css('img::attr(alt)').get()
-            if service_name:
-                services.append(service_name)
         
-        shop_item['services'] = ', '.join(services)
         
         # Google Maps coordinates (latitude and longitude) from iframe
         map_iframe = response.css('.map iframe::attr(src)').get()
