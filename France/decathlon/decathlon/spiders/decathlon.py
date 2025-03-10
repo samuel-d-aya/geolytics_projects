@@ -62,12 +62,12 @@ class DecathlonSpider(scrapy.Spider):
                 },
                 'latitude': latitude,
                 'longitude': longitude,
-                'opening_hours': formatted_opening_hours,
+                'opening_hours': {"opening_hours":formatted_opening_hours},
                 'name': properties.get('name'),
                 'phone': properties.get('contact', {}).get('phone'),
                 'ref': properties.get('store_id'),
                 "state": "",
-                'website': "https://www.decathlon.fr/store-locator",
+                'website': "https://www.decathlon.fr/store-locator"
             }
         
         # Handle pagination

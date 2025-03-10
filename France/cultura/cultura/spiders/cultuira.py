@@ -33,7 +33,37 @@ class CulturaSpider(scrapy.Spider):
                 'phone': store.get('contact_phone'),
                 'latitude': position.get('latitude'),
                 'longitude': position.get('longitude'),
-                'opening_hours': store.get('opening_hours'),
+                'opening_hours': self.convert_opening_hours(store.get('opening_hours')),
                 'postcode': address.get('postcode'),
                 'website': "https://www.cultura.com/les-magasins.html"    
             }
+    def convert_opening_hours(self,original_format):
+        day_map = {
+            "1": "Mon",
+            "2": "Tue",
+            "3": "Wed",
+            "4": "Thu",
+            "5": "Fri",
+            "6": "Sat",
+            "7": "Sun"
+        }
+        
+        result = {
+            "Mon": "Closed",
+            "Tue": "Closed",
+            "Wed": "Closed",
+            "Thu": "Closed",
+            "Fri": "Closed",
+            "Sat": "Closed",
+            "Sun": "Closed"
+        }
+        
+        # Fill in the hours from the original format
+        for day_info in original_format:
+            day_name = day_map.get(day_info["dayofweek"])
+            if day_name:
+                start_time = day_info["start_time"]
+                end_time = day_info["end_time"]
+                result[day_name] = f"{start_time}-{end_time}"
+        
+        return {"opening_hours": result}
