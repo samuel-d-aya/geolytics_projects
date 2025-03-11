@@ -1,5 +1,6 @@
 import scrapy
 import json
+import datetime
 
 class JardilandSpider(scrapy.Spider):
     name = "jardiland"
@@ -26,15 +27,22 @@ class JardilandSpider(scrapy.Spider):
                 location_id = location.get('id')
                 if location_id:
                     self.location_data[location_id] = {
+                        'address': location.get('streetAndNumber'),
+                        'city': location.get('city'),
+                        'postcode': location.get('zip'),
+                        'country': location.get('country'),
+                        "extras": {
+                            'Brand': "Jardiland",
+                            'fascia': "Jardiland",
+                            "category": "Sports",
+                            "edit_date": datetime.datetime.now().strftime('%Y%m%d'),
+                            "lat_lon_source": "Third Party",
+                        },
                         'lat': location.get('lat'),
                         'long': location.get('lng'),
                         'name': location.get('name'),
-                        'address': location.get('streetAndNumber'),
-                        'city': location.get('city'),
-                        'state': location.get('province'),
-                        'postcode': location.get('zip'),
-                        'country': location.get('country'),
-                        'ref': location_id
+                        'ref': location_id,
+                        'state': location.get('province')
                     }
             
             # Collect location IDs
@@ -87,7 +95,6 @@ class JardilandSpider(scrapy.Spider):
         
         try:
             data = json.loads(response.text)
-            
             status = data.get('status')
             self.logger.info(f"Second request status: {status}")
             
@@ -110,13 +117,42 @@ class JardilandSpider(scrapy.Spider):
                 if location_id and location_id in self.location_data:
                     combined_data = self.location_data[location_id].copy()
                     
-                    # additional data
+                    call_to_actions = location.get('callToActions', [])
+                    
+                    # Additional data
                     additional_data = {
                         'phone': location.get('phone'),
-                        'openingHours': location.get('openingHours'),
-                        'callToActions': location.get('callToActions')
+                        'website': call_to_actions[0].get('url')
                     }
                     
+                    # Handle opening hours
+                    opening_hours = location.get('openingHours', [])
+                    formatted_opening_hours = {}
+                    day_mapping = {1: "Mon", 2: "Tue", 3: "Wed", 4: "Thu", 5: "Fri", 6: "Sat", 7: "Sun"}
+                    
+                    for day_data in opening_hours:
+                        day_of_week = day_data.get('dayOfWeek')
+                        time_slots = []
+                        
+                        # Check if the store has opening hours for the day
+                        if 'from1' in day_data and 'to1' in day_data:
+                            time_slots.append(f"{day_data['from1']}-{day_data['to1']}")
+                        if 'from2' in day_data and 'to2' in day_data:
+                            time_slots.append(f"{day_data['from2']}-{day_data['to2']}")
+                        
+                        # If the store is closed on that day, set the opening hours to "Closed"
+                        if 'closed' in day_data and day_data['closed']:
+                            formatted_opening_hours[day_mapping.get(day_of_week, "")] = "Closed"
+                        elif time_slots:
+                            formatted_opening_hours[day_mapping.get(day_of_week, "")] = ", ".join(time_slots)
+                        else:
+                            # If no hours are available, leave it empty
+                            formatted_opening_hours[day_mapping.get(day_of_week, "")] = ""
+                    
+                    # Add formatted opening hours to additional data
+                    additional_data['opening_hours'] = {"opening_hours":formatted_opening_hours}
+                    
+                    # Combine the basic data and additional data
                     combined_data.update(additional_data)
                     yield combined_data
                     processed_ids.add(location_id)
@@ -141,7 +177,6 @@ class JardilandSpider(scrapy.Spider):
             for location_id in batch_ids:
                 if location_id in self.location_data:
                     yield self.location_data[location_id]
-    
     def handle_error(self, failure):
         self.logger.error(f"Request failed: {failure.value}")
         # Try to get batch IDs from the failed request
