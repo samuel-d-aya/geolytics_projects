@@ -45,11 +45,33 @@ class BrocoSpider(scrapy.Spider):
         ).get()
         store_hour_table = response.css(".bd-DepotCard table tr")
 
+        # Mapping for day names
+        day_mapping = {
+            'Lundi': 'lun',
+            'Mardi': 'mar',
+            'Mercredi': 'mer',
+            'Jeudi': 'jeu',
+            'Vendredi': 'ven',
+            'Samedi': 'sam',
+            'Dimanche': 'dim'
+        }
+
+        # Function to convert the time to the required format
+        def convert_time_format(time_str):
+            # Remove leading and trailing spaces and replace the time 'h' and 'h30' to a full time format
+            time_str = time_str.strip().replace('h30', ':30').replace('h', ':00')
+            
+            # If there's a leading single digit hour (e.g., '7h' -> '07:00')
+            if len(time_str.split(' - ')[0]) == 3:
+                time_str = '0' + time_str
+            
+            return time_str
+
+        # Formatting opening hours
         store_opening_hour = {
-            hour.css("td:nth-child(1)::text")
-            .get(): hour.css("td:nth-child(2)::text")
-            .get()
+            day_mapping[hour.css("td:nth-child(1)::text").get().strip()]: convert_time_format(hour.css("td:nth-child(2)::text").get())
             for hour in store_hour_table
+            if hour.css("td:nth-child(1)::text").get() and hour.css("td:nth-child(2)::text").get()
         }
 
         yield {
@@ -59,22 +81,21 @@ class BrocoSpider(scrapy.Spider):
             "country": "France",
             "extras": {
                 "brand": "Brico Depot",
-                "fascia": "",
-                "category": "",
-                "edit_date": datetime.datetime.date,
+                "fascia": "Brico Depot",
+                "category": "Retail",
+                "edit_date": datetime.datetime.now().strftime('%Y%m%d'),
                 "lat_lon_source": "website",
             },
             "lat": script_data.get("latitude"),
             "lon": script_data.get("longitude"),
             "name": script_data.get("storeName"),
-            "opening_hours": store_opening_hour,
+            "opening_hours": {'opening_hours': store_opening_hour},
             "phone": store_phone,
             "postcode": script_data.get("postalCode"),
             "ref": script_data.get("id"),
             "state": None,
             "website": response.meta.get("store_url"),
         }
-
     def parse_scripts_data(self, script_response):
         pattern = re.compile(
             r"var BricoMap = new SearchDepotMap\s*\(\s*\[(.*?)\]\s*,", re.DOTALL
@@ -89,7 +110,7 @@ class BrocoSpider(scrapy.Spider):
         result = {}
 
         kv_pattern = re.compile(
-            r'(\w+):\s*(?:"([^"]*?)"|\'((?:[^\'\\]|\\.)*?)\'|([\d.]+))'
+            r'(\w+):\s*(?:"((?:[^"\\]|\\.)*?)"|\'((?:[^\'\\]|\\.)*?)\'|([-]?\d+\.\d+|[-]?\d+))'
         )
 
         for match in kv_pattern.finditer(store_data):
@@ -101,7 +122,9 @@ class BrocoSpider(scrapy.Spider):
             if numeric_value is not None:
 
                 value = (
-                    float(numeric_value) if "." in numeric_value else int(numeric_value)
+                    float(numeric_value)
+                    if "." in numeric_value or "-" in numeric_value
+                    else int(numeric_value)
                 )
             else:
 
@@ -109,8 +132,7 @@ class BrocoSpider(scrapy.Spider):
 
                 value = value.replace("\\'", "'")
 
-                # value = value.encode().decode('unicode_escape')
-
             result[key] = value
 
         return result
+    

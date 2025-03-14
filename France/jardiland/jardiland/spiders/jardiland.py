@@ -34,7 +34,7 @@ class JardilandSpider(scrapy.Spider):
                         "extras": {
                             'Brand': "Jardiland",
                             'fascia': "Jardiland",
-                            "category": "Sports",
+                            "category": "Retail",
                             "edit_date": datetime.datetime.now().strftime('%Y%m%d'),
                             "lat_lon_source": "Third Party",
                         },
