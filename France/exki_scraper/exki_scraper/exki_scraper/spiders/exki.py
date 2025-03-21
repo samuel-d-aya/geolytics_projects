@@ -31,7 +31,7 @@ class ExkiSpider(scrapy.Spider):
                     "extras": {
                         "brand": "Exki",
                         "fascia": store.get("restaurant"),
-                        "category": "Restaurant",
+                        "category": "Food & Beverage",
                         "edit_date": str(datetime.datetime.now().date()),
                         "lat_lon_source": "website",
                     },

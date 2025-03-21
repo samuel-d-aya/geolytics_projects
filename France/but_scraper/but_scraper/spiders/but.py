@@ -52,8 +52,9 @@ class ShopsSpider(scrapy.Spider):
                             'lon': shop.get('geolocation', {}).get('longitude'),
                             'name': shop.get('name'),
                             'phone': shop.get('phone', {}).get('phoneNumber'),
-                            'ref': shop.get('id'),
                             'postcode': shop.get('address', {}).get('zipCode'),
+                            'ref': shop.get('id'),
+                            "state": "",
                             'website': f'https://www.but.fr{shop.get("url")}'
                         }
                         yield item
