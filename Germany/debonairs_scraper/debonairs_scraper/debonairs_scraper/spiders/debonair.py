@@ -55,7 +55,7 @@ class DebonairSpider(scrapy.Spider):
             ".Core-address > span > meta:nth-child(1)::attr(content)"
         ).get()
         lon = response.css(
-            ".Core-address > span > meta:nth-child(1)::attr(content)"
+            ".Core-address > span > meta:nth-child(2)::attr(content)"
         ).get()
 
         yield {
@@ -86,22 +86,28 @@ class DebonairSpider(scrapy.Spider):
             "postcode": response.css(
                 "#address > div:nth-child(5) > span.c-address-postal-code::text"
             ).get(),
-            "ref": f"{round(float(lat),2)}-{round(float(lon), 2)}",
+            "ref": f"{lat}-{lon}",
             "state": None,
             "website": response.url,
         }
 
-    def parse_opening_hours(self, text_data):
 
+    def parse_opening_hours(self, text_data):
         self.logger.warning(f"Here is the {text_data}")
 
         data_days = json.loads(text_data)
 
+        def format_time(time_int):
+            """Formats a 24-hour time integer like 900 to 9:00, and 2100 to 21:00."""
+            if isinstance(time_int, int) and time_int >= 0 and time_int <= 2359:
+                hours = time_int // 100
+                minutes = time_int % 100
+                return f"{hours:02d}:{minutes:02d}"
+            return None
+
         output = {
             "opening_hours": {
-                weekday.get("day")[
-                    :3
-                ]: f'{weekday.get("intervals")[0].get("start") if weekday.get("intervals") else None} - {weekday.get("intervals")[0].get("end")if weekday.get("intervals") else None}'
+                weekday.get("day")[:3].capitalize(): f'{format_time(weekday.get("intervals")[0].get("start")) if weekday.get("intervals") else None} - {format_time(weekday.get("intervals")[0].get("end")) if weekday.get("intervals") else None}'
                 for weekday in data_days
             }
         }
