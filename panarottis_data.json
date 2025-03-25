@@ -1,0 +1,5 @@
+[
+{"response_data": {"res": {"code": 400, "message": "Error with Route: Invalid storeId Value. No Open Store exists with the storeId undefined.", "store": []}, "status": "success"}, "status": 200, "url": "https://www.panarottis.com/api/gostore"},
+{"key": "res", "value": {"code": 400, "message": "Error with Route: Invalid storeId Value. No Open Store exists with the storeId undefined.", "store": []}},
+{"key": "status", "value": "success"}
+]
