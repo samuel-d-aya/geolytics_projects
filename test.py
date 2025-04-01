@@ -1,81 +1,53 @@
 import scrapy
 import json
+import datetime
+import re
 
-class PanarottisSpider(scrapy.Spider):
-    name = 'panarottis'
-    allowed_domains = ['panarottis.com']
-    
-    # The API endpoint we'll be querying
-    start_urls = ['https://www.panarottis.com/api/gostore']
-    
-    def start_requests(self):
-        """
-        Override the start_requests method to use POST instead of GET
-        """
-        for url in self.start_urls:
-            # You can customize the request payload based on your needs
-            payload = {
-                # Add request parameters here if needed
-                # For example: "storeId": "123", "category": "pizza", etc.
-            }
-            
-            # Set headers to mimic a browser request
-            headers = {
-                'Content-Type': 'application/json',
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-                'Accept': 'application/json, text/plain, */*',
-                'Origin': 'https://www.panarottis.com',
-                'Referer': 'https://www.panarottis.com/',
-            }
-            
-            yield scrapy.Request(
-                url=url,
-                method='POST',
-                headers=headers,
-                body=json.dumps(payload),
-                callback=self.parse
-            )
-    
+class LosteriaSpider(scrapy.Spider):
+    name = "losteria"
+    allowed_domains = ["losteria.net"]
+    start_urls = ["https://losteria.net/en/restaurants/view/list/?tx_losteriarestaurants_restaurants%5Bfilter%5D%5Bcountry%5D=de"]
+
     def parse(self, response):
-        """
-        Parse the JSON response from the API
-        """
-        try:
-            # Parse the JSON response
-            data = json.loads(response.text)
-            
-            # Process and yield the data
-            yield {
-                'response_data': data,
-                'status': response.status,
-                'url': response.url
-            }
-            
-            # If the API returns a list of items, you might want to process each item
-            # For example:
-            if isinstance(data, list):
-                for item in data:
-                    yield {
-                        'item_data': item,
-                    }
-            elif isinstance(data, dict):
-                # If there's a specific data structure in the response
-                # For example, if the response has a 'stores' or 'menu' key
-                for key, value in data.items():
-                    yield {
-                        'key': key,
-                        'value': value
-                    }
-            
-        except json.JSONDecodeError:
-            self.logger.error(f"Failed to parse JSON from response: {response.text[:100]}...")
-            
-    def save_to_file(self, data, filename='panarottis_data.json'):
-        """
-        Utility method to save scraped data to a file
-        """
-        with open(filename, 'w') as f:
-            json.dump(data, f, indent=4)
-            
-# To run this spider from the command line:
-# scrapy runspider panarottis_spider.py -o panarottis_data.json
+        # Extract restaurant links in Germany
+        restaurant_links = response.css('a.single-link.detail::attr(href)').getall()
+        for link in restaurant_links:
+            if "/en/restaurants/restaurant/" in link:
+                full_link = response.urljoin(link)
+                yield scrapy.Request(url=full_link, callback=self.parse_restaurant)
+
+    def parse_restaurant(self, response):
+        # Extract address block
+        address_block = response.css('.address::text').getall()
+        
+        # Join all elements and clean up spaces, newlines, tabs
+        full_address = ' '.join(address_block)
+        cleaned_address = re.sub(r'[\s\n\t]+', ' ', full_address).strip()
+        
+        # Extract components using regex
+        # Look for pattern: street address, postal code, city
+        match = re.search(r'(.*?),\s*(\d{5})\s+(.*)', cleaned_address)
+        
+        if match:
+            street_address = match.group(1).strip()
+            postal_code = match.group(2)
+            city = match.group(3).strip()
+        else:
+            # Fallback if regex doesn't match
+            street_address = cleaned_address
+            postal_code = None
+            city = None
+        
+        # For the full address without spaces between components
+        compact_address = street_address + "," + (postal_code or "") + " " + (city or "")
+        
+        phone = response.css('.telephone.phone-link::text').get()
+
+        yield {
+            'full_address': cleaned_address,
+            'compact_address': compact_address,
+            'street_address': street_address,
+            'city': city,
+            'postal_code': postal_code,
+            'phone': phone,
+        }
