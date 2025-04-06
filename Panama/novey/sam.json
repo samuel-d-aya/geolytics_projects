@@ -1,0 +1,37 @@
+[
+
+][
+
+][
+
+][
+
+    
+{"source_code": "0301", "name": "Novey Calidonia", "latitude": "8.972077", "longitude": "-79.537508", "region": "Panamá", "city": "Panamá", "street": "Avenida Central con calle Juan A. Guizado, Calidonia", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0302", "name": "Novey Los Ángeles", "latitude": "9.002103", "longitude": "-79.528942", "region": "Panamá", "city": "Panamá", "street": "Calle 64B con calle 65 oeste, Los Ángeles", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0303", "name": "Novey Costa del Este", "latitude": "9.022786", "longitude": "-79.462596", "region": "Panamá", "city": "Panamá", "street": "Avenida Marina del norte, Costa del Este", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0304", "name": "Novey Albrook", "latitude": "8.978058", "longitude": "-79.553376", "region": "Panamá", "city": "Panamá", "street": "Centro comercial Albrook Mall", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0305", "name": "Novey Brisas del Golf", "latitude": "9.069807", "longitude": "-79.451639", "region": "Panamá", "city": "Panamá", "street": "Avenida principal Brisas del Golf con calle 29", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0306", "name": "Novey Paitilla", "latitude": "8.975606", "longitude": "-79.516233", "region": "Panamá", "city": "Panamá", "street": "Avenida Balboa con vía Italia, Paitilla", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0307", "name": "Novey Colón", "latitude": "9.338865", "longitude": "-79.879862", "region": "Colón", "city": "Colón", "street": "Plaza La Rotonda Cuatro Altos, Colón.", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0308", "name": "Novey David", "latitude": "8.445824", "longitude": "-82.421650", "region": "Chiriquí", "city": "David", "street": "Carretera Interamericana con vía Boquete", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0309", "name": "Novey La Chorrera", "latitude": "8.888566", "longitude": "-79.772446", "region": "Panamá Oeste", "city": "La Chorrera", "street": "Avenida Las Américas", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0310", "name": "Novey Centenario", "latitude": "9.030579", "longitude": "-79.530144", "region": "Panamá", "city": "Panamá", "street": "Avenida Centenario, Centennial", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0311", "name": "Novey Versalles", "latitude": "9.030572", "longitude": "-79.530146", "region": "Panamá", "city": "Panamá", "street": "Avenida Costanera, Versalles", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0312", "name": "Novey Coronado", "latitude": "8.541412", "longitude": "-79.916491", "region": "Panamá Oeste", "city": "La Chorrera", "street": "Carretera Interamericana, Coronado", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0313", "name": "Novey Arraijan ", "latitude": "8.927140", "longitude": "-79.706861", "region": "Panamá Oeste", "city": "La Chorrera", "street": "Carretera Interamericana, Vista Alegre", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0314", "name": "Novey Calle 50", "latitude": "8.989965", "longitude": "-79.512072", "region": "Panamá", "city": "Panamá", "street": "Calle 50 con calle 65 este, San Francisco", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0315", "name": "Novey Chitré", "latitude": "7.952595", "longitude": "-80.429051", "region": "Herrera", "city": "Chitré", "street": "Avenida Roberto Ramírez de Diego", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0316", "name": "Novey Penonomé", "latitude": "8.509686", "longitude": "-80.361587", "region": "Coclé", "city": "Penonomé", "street": "Carretera Interamericana con calle de la Esperanza", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0317", "name": "Novey David F Sur", "latitude": "8.427730", "longitude": "-82.438113", "region": "Chiriquí", "city": "David", "street": "Calle F Sur", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0318", "name": "Novey Playa Blanca", "latitude": "8.373505", "longitude": "-80.155796", "region": "Coclé", "city": "Penonomé", "street": "Carretera Interamericana, Rio Hato", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0319", "name": "Novey Santiago", "latitude": "8.097828", "longitude": "-80.958747", "region": "Veraguas", "city": "Santiago", "street": "Carretera Interamericana, Santiago", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0320", "name": "Novey La Doña", "latitude": "9.105509", "longitude": "-79.371494", "region": "Panamá", "city": "Panamá", "street": "Calle La Doña con calle Cabuya, La Doña", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0321", "name": "Novey Parque Lefevre", "latitude": "9.016503", "longitude": "-79.495440", "region": "Panamá", "city": "Panamá", "street": "Vía España, Río Abajo, Parque Lefevre", "postcode": "507", "phone": "300-9200"},
+{"source_code": "03MP", "name": "Marketplace Novey", "latitude": null, "longitude": null, "region": "Panamá", "city": "Panama", "street": "Vía Tocumen", "postcode": "0000", "phone": null},
+{"source_code": "0322", "name": "Novey Panamá Pacífico", "latitude": "8.917870", "longitude": "-79.593229", "region": "Panamá Oeste", "city": "La Chorrera", "street": "Panamá Pacífico Boulevard, Arraiján", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0323", "name": "Novey Obarrio", "latitude": "8.982466", "longitude": "-79.520316", "region": "Panamá", "city": "Panamá", "street": "Calle 50 con calle 53 este", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0324", "name": "Novey Costa Verde", "latitude": "8.889150", "longitude": "-79.750351", "region": "Panamá Oeste", "city": "La Chorrera", "street": "Autopista Arraiján - La Chorrera con el Boulevard Costa Verde", "postcode": "507", "phone": "300-9200"},
+{"source_code": "0325", "name": "Novey Las Américas", "latitude": "9.077543", "longitude": "-79.400205", "region": "Panamá", "city": "Panamá", "street": "Carretera Panamericana, Las Américas", "postcode": "507", "phone": "300-9200"},
+{"source_code": "03D1", "name": "Centro de Distribución Novey", "latitude": "9.070260", "longitude": "-79.408630", "region": "Panamá", "city": "Panama", "street": "Vía Tocumen", "postcode": "0000", "phone": "300-9200"}
+]
