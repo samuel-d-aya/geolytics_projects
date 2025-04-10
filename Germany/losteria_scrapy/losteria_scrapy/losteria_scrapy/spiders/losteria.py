@@ -118,15 +118,15 @@ class LosteriaSpider(scrapy.Spider):
             },
             "lat": location.latitude,
             "lon": location.longitude,
-            "name": re.sub(
-                r"\s+", "", response.css(".restaurant-detail .headline::text").get()
-            ),
             "opening_hours": self.parse_opening_hours(
                 response.css(".restaurant-detail >div:nth-child(3) p::text").getall()
             ),
             "phone": response.css(".restaurant-detail .contact a::text").get(),
             "postcode": full_address.split(",")[1].split()[0],
             "ref": f"{location.latitude}-{location.longitude}",
+            "name": re.sub(
+                r"\s+", "", response.css(".restaurant-detail .headline::text").get()
+            ),
             "state": None,
             "website": response.url,
         }

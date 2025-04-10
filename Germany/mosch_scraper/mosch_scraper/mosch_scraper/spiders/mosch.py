@@ -60,15 +60,15 @@ class MoschSpider(scrapy.Spider):
             },
             "lat": lat,
             "lon": lon,
-            "name": response.css(
-                ".container > div > div:nth-child(2) > h1::text"
-            ).get(),
             "opening_hours": self.parse_opening_hours(open_hour_list),
             "phone": response.css(
                 ".container > div > div:nth-child(2) > p > a::text"
             ).get(),
             "postcode": full_address[1].split()[0],
             "ref": f"{lat}-{lon}",
+            "name": response.css(
+                ".container > div > div:nth-child(2) > h1::text"
+            ).get(),
             "state": None,
             "website": response.url,
         }

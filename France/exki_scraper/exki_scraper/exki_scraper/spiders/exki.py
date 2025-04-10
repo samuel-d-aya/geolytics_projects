@@ -25,9 +25,9 @@ class ExkiSpider(scrapy.Spider):
 
                 yield {
                     "addr_full": store.get("address"),
-                    "brand": "Exki",
                     "city": store.get("city"),
                     "country": store.get("country"),
+                    "brand": "Exki",
                     "extras": {
                         "brand": "Exki",
                         "fascia": store.get("restaurant"),
@@ -37,11 +37,11 @@ class ExkiSpider(scrapy.Spider):
                     },
                     "lat": store.get("lat"),
                     "lon": store.get("lng"),
-                    "name": store.get("name"),
                     "opening_hours": self.parse_opening_hours(store),
                     "phone": store.get("phone"),
-                    "postcode": store.get("zip"),
                     "ref": store.get("id"),
+                    "postcode": store.get("zip"),
+                    "name": store.get("name"),
                     "state": store.get("state"),
                     "website": f'https://www.exki.com/fr{store.get("menu_qr_code")}',
                 }

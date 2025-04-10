@@ -103,12 +103,12 @@ class AshSpider(scrapy.Spider):
             },
             'lat': lat,
             'lon': lon,
-            'ref': f"{lat}-{lon}",
             'opening_hours': opening_hours,
+            'phone': phone,
+            'ref': f"{lat}-{lon}",
             'postcode': None,
             'name': name,
             'state': None,
-            'phone': phone,
             'website': "https://www.the-ash.com/en/restaurants"
         }
 

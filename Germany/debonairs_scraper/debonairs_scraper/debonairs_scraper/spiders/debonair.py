@@ -62,9 +62,10 @@ class DebonairSpider(scrapy.Spider):
             "addr_full": response.css(
                 "#address > meta:nth-child(2)::attr(content)"
             ).get(),
-            "brand": response.css(".LocationName-brand::text").get(),
+            
             "city": response.css("#address > meta:nth-child(1)::attr(content)").get(),
             "country": "South Africa",
+            "brand": response.css(".LocationName-brand::text").get(),
             "extras": {
                 "brand": response.css(".LocationName-brand::text").get(),
                 "fascia": response.css(".LocationName-brand::text").get(),
@@ -78,15 +79,16 @@ class DebonairSpider(scrapy.Spider):
             "lon": response.css(
                 ".Core-address > span > meta:nth-child(2)::attr(content)"
             ).get(),
-            "name": f"{response.css(".LocationName-brand::text").get()} {response.css(".LocationName-geo::text").get()}",
+           
             "opening_hours": self.parse_opening_hours(
                 response.css(".c-hours-details-wrapper::attr('data-days')").get()
             ),
             "phone": response.css(".Core-phone .Phone-link::text").getall(),
+            "ref": f"{lat}-{lon}",
             "postcode": response.css(
                 "#address > div:nth-child(5) > span.c-address-postal-code::text"
             ).get(),
-            "ref": f"{lat}-{lon}",
+            "name": f"{response.css(".LocationName-brand::text").get()} {response.css(".LocationName-geo::text").get()}",
             "state": None,
             "website": response.url,
         }

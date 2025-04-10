@@ -24,9 +24,9 @@ class SubwaySpider(scrapy.Spider):
 
             yield {
                 "addr_full": store.get("address").get("street"),
-                "brand": "Subway",
                 "city": store.get("address").get("city"),
                 "country": store.get("address").get("country"),
+                "brand": "Subway",
                 "extras": {
                     "brand": "Subway",
                     "fascia": "Subway",
@@ -36,13 +36,13 @@ class SubwaySpider(scrapy.Spider):
                 },
                 "lat": store.get("geoPosition").get("lat"),
                 "lon": store.get("geoPosition").get("lng"),
-                "name": store.get("name"),
                 "opening_hours": self.parse_opening_hours(
                     store.get("weeklyWorkingHours")
                 ),
                 "phone": store.get("phoneNumber"),
-                "postcode": store.get("zip"),
                 "ref": store.get("id"),
+                "postcode": store.get("zip"),
+                "name": store.get("name"),
                 "state": store.get("state"),
                 "website": f'{response.url}/{store.get("name")}',
             }

@@ -58,7 +58,7 @@ class Super99Spider(scrapy.Spider):
                     .get()
                     .split(":")[1].strip(),
                     "postcode": None,
-                    "ref": f"{lat}-{lon}" if lat and lon else None,
+                    "ref": f"{lat},{lon}" if lat and lon else None,
                     "state": None,
                     "website": store.css(".last-button > a::attr(href)").get(),
                 }
@@ -68,14 +68,14 @@ class Super99Spider(scrapy.Spider):
         # Try to extract from map URL first
         if coord_url and "@" in coord_url:
             try:
-                # Extract coordinates from URL
+                
                 parts = coord_url.split("@")[1].split(",")
                 if len(parts) >= 2:
                     return parts[0], parts[1]
             except (IndexError, ValueError):
                 self.logger.warning(f"Failed to parse coordinates from URL: {coord_url}")
         
-        # If extraction fails or URL doesn't contain coordinates, use geocoding
+       
         try:
             # Format the address for geocoding
             geocode_address = f"{address}, {city}, Panama"

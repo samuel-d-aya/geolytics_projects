@@ -41,13 +41,13 @@ class JimblockSpider(scrapy.Spider):
             },
             "lat": location.latitude,
             "lon": location.longitude,
-            "name": response.css(".textpictures .text-inner h1::text").get(),
             "opening_hours": self.parse_opening_hours(
                 response.css(".restaurant[data-index='2'] > p::text").getall()
             ),
             "phone": response.css(".restaurant[data-index='1'] > p > a::text").get(),
             "postcode": full_address[1].split()[0],
             "ref": f"{round(float(location.latitude),2)}-{round(float(location.longitude), 2)}",
+            "name": response.css(".textpictures .text-inner h1::text").get(),
             "state": None,
             "website": response.url,
         }

@@ -41,11 +41,11 @@ class FreddyFreshSpider(scrapy.Spider):
                 },
                 "lat": location.latitude,
                 "lon": location.longitude,
-                "name": store.css(".title a::text").get(),
                 "opening_hours": self.parse_opening_hours(store),
                 "phone": re.sub(r"\s+", "", store.css(".phone a::text").getall()[1]),
                 "postcode": address_output[1].split()[0],
                 "ref": f"{float(location.latitude)}-{float(location.longitude)}",
+                "name": store.css(".title a::text").get(),
                 "state": None,
                 "website": response.urljoin(response.css(".title a::attr(href)").get()),
             }

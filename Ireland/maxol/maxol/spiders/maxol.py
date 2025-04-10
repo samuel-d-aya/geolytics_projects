@@ -5,11 +5,9 @@ from urllib.parse import urlencode
 
 class MaxolSpider(scrapy.Spider):
     name = "maxol"
-    
-    # The base URL without query parameters
     base_url = "https://cdn.yextapis.com/v2/accounts/me/answers/vertical/query"
     
-    # API key and other static parameters
+   #parameters
     params = {
         "experienceKey": "maxol-station-finder",
         "api_key": "3652290fc55da954d9da84ed7947c845",
@@ -28,7 +26,6 @@ class MaxolSpider(scrapy.Spider):
         "source": "STANDARD"
     }
     
-    # Day mapping for formatting opening hours
     day_mapping = {
         "monday": "Mon",
         "tuesday": "Tue",
@@ -52,7 +49,7 @@ class MaxolSpider(scrapy.Spider):
                 continue
                 
             if "openIntervals" in day_info and day_info["openIntervals"]:
-                interval = day_info["openIntervals"][0]  # Take the first interval
+                interval = day_info["openIntervals"][0]  
                 formatted_hours[day_short] = f"{interval['start']}-{interval['end']}"
             else:
                 formatted_hours[day_short] = "Closed"

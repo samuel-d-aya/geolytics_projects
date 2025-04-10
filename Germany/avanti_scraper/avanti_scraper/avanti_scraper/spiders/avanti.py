@@ -29,9 +29,9 @@ class AvantiSpider(scrapy.Spider):
 
             yield {
                 "addr_full": address_output[1],
-                "brand": "Pizza Avanti",
                 "city": re.sub(r"\s+", "", store.css("store-title::text").get()),
                 "country": "Germany",
+                "brand": "Pizza Avanti",
                 "extras": {
                     "brand": "Pizza Avanti",
                     "fascia": "Pizza Avanti",
@@ -41,11 +41,11 @@ class AvantiSpider(scrapy.Spider):
                 },
                 "lat": location.latitude,
                 "lon": location.longitude,
-                "name": f"Avanti {re.sub(r"\s+", "", store.css("store-title::text").get())}",
                 "opening_hours": self.parse_opening_hours(store),
                 "phone": None,
-                "postcode": address_output[2].split()[0],
                 "ref": f"{float(location.latitude)}-{float(location.longitude)}",
+                "postcode": address_output[2].split()[0],
+                "name": f"Avanti {re.sub(r"\s+", "", store.css("store-title::text").get())}",
                 "state": None,
                 "website": response.urljoin(
                     store.css("store-buttons a::attr(href)").get()

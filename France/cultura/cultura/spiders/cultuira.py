@@ -17,7 +17,7 @@ class CulturaSpider(scrapy.Spider):
             position = store.get('position', {})
             opening_hours = store.get('opening_hours', {})
             yield {
-                'address': f"{address.get('postcode', '')}, {address.get('street', '')} {address.get('city', '')}",
+                'addr_full': f"{address.get('postcode', '')}, {address.get('street', '')} {address.get('city', '')}",
                 'city': address.get('city'),
                 'country_code': address.get('country_code'),
                 'brand': "Cultura",
@@ -28,13 +28,14 @@ class CulturaSpider(scrapy.Spider):
                     'edit_date': datetime.datetime.now().strftime('%Y%m%d'),
                     'lat_lon_source': "website",
                 },
-                'ref': store.get('id'),
-                'name': store.get('name'),
-                'phone': store.get('contact_phone'),
-                'latitude': position.get('latitude'),
-                'longitude': position.get('longitude'),
+                'lat': position.get('latitude'),
+                'lon': position.get('longitude'),
                 'opening_hours': self.convert_opening_hours(store.get('opening_hours')),
+                'phone': store.get('contact_phone'),
+                'ref': store.get('id'),
                 'postcode': address.get('postcode'),
+                'name': store.get('name'),
+                'state': None,
                 'website': "https://www.cultura.com/les-magasins.html"    
             }
     def convert_opening_hours(self,original_format):

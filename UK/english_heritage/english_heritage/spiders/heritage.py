@@ -13,7 +13,7 @@ class HeritageSpider(scrapy.Spider):
         results = data.get("Results", [])
         for result in results:
             path = result.get("Path")
-            ref = result.get("ID")  # Extract the id as ref
+            ref = result.get("ID")  
             if path:
                 full_url = f"https://www.english-heritage.org.uk{path}"
                 yield scrapy.Request(full_url, callback=self.parse_details, cb_kwargs={"ref": ref})
