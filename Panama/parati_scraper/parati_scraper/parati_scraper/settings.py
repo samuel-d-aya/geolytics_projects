@@ -1,4 +1,4 @@
-# Scrapy settings for superextra_scraper project
+# Scrapy settings for parati_scraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,25 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "superextra_scraper"
+BOT_NAME = "parati_scraper"
 
-SPIDER_MODULES = ["superextra_scraper.spiders"]
-NEWSPIDER_MODULE = "superextra_scraper.spiders"
+SPIDER_MODULES = ["parati_scraper.spiders"]
+NEWSPIDER_MODULE = "parati_scraper.spiders"
 
-
-DOWNLOAD_HANDLERS = {
-    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
-    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
-}
-
-TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-
-# Optional: headless browser settings
-PLAYWRIGHT_BROWSER_TYPE = "firefox"  # or "firefox", "webkit"
-PLAYWRIGHT_LAUNCH_OPTIONS = {"headless": True}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "superextra_scraper (+http://www.yourdomain.com)"
+# USER_AGENT = "parati_scraper (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -56,13 +45,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    "superextra_scraper.middlewares.SuperextraScraperSpiderMiddleware": 543,
+#    "parati_scraper.middlewares.ParatiScraperSpiderMiddleware": 543,
 # }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "superextra_scraper.middlewares.SuperextraScraperDownloaderMiddleware": 543,
+#    "parati_scraper.middlewares.ParatiScraperDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -74,7 +63,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 # ITEM_PIPELINES = {
-#    "superextra_scraper.pipelines.SuperextraScraperPipeline": 300,
+#    "parati_scraper.pipelines.ParatiScraperPipeline": 300,
 # }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -100,6 +89,4 @@ ROBOTSTXT_OBEY = False
 
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-FEED_EXPORT_ENCODING = "utf-8-sig"
-
-
+FEED_EXPORT_ENCODING = "utf-8"
