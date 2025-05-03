@@ -13,6 +13,7 @@ class SchumakerSpider(scrapy.Spider):
     # start_urls = ["https://www.shoemarker.co.kr/ASP/Customer/Ajax/StoreView.asp?Page="]
     start_urls = ["https://www.shoemarker.co.kr/ASP/Customer/Ajax/StoreView.asp?Page="]
     address_endpoint = "https://dapi.kakao.com/v2/local/search/address.json"
+    google_map_api = "https://maps.googleapis.com/maps/api/geocode/json"
 
     headers = {
         "accept": "*/*",
@@ -95,6 +96,8 @@ class SchumakerSpider(scrapy.Spider):
         for store in stores:
             addr = store.css(".shop-addr::text").get()
 
+            self.logger.info("\n\n{addr}\n\n")
+
             params = {
                 "query": addr,
                 "page": 1,
@@ -109,6 +112,12 @@ class SchumakerSpider(scrapy.Spider):
 
             data = output.json()
 
+            if not data.get("documents"):
+
+                google_geocode = self.geocode_address(
+                    addr, "AIzaSyAgZy2MBG8jU1rOOPBWx4jN7y85rK23I7w"
+                )
+
             op_hr = (
                 store.css(".shop-tel::text")
                 .get()
@@ -121,20 +130,30 @@ class SchumakerSpider(scrapy.Spider):
 
             yield {
                 "addr_full": store.css(".shop-addr::text").get(),
-                "brand": "Schumaker",
-                "city": data.get("documents")[0]
-                .get("address")
-                .get("region_2depth_name"),
+                "brand": "Shoemarker",
+                "city": (
+                    data.get("documents")[0].get("address").get("region_2depth_name")
+                    if data.get("documents")
+                    else google_geocode.get("city")
+                ),
                 "country": "South Korea",
                 "extras": {
-                    "brand": "Schumaker",
-                    "fascia": "Schumaker",
+                    "brand": "Shoemarker",
+                    "fascia": "Shoemarker",
                     "category": "Retail",
-                    "edit_date": str(datetime.datetime.now().date()),
-                    "lat_lon_source": "website",
+                    "edit_date": datetime.datetime.now().strftime("%Y%m%d"),
+                    "lat_lon_source": "Third Party",
                 },
-                "lat": data.get("documents")[0].get("y"),
-                "lon": data.get("documents")[0].get("x"),
+                "lat": (
+                    data.get("documents")[0].get("y")
+                    if data.get("documents")
+                    else google_geocode.get("latitude")
+                ),
+                "lon": (
+                    data.get("documents")[0].get("x")
+                    if data.get("documents")
+                    else google_geocode.get("longitude")
+                ),
                 "name": re.sub(r"\s+", "", store.css(".shop-name::text").get()),
                 "opening_hours": {
                     "opening_hours": {
@@ -148,11 +167,19 @@ class SchumakerSpider(scrapy.Spider):
                     }
                 },
                 "phone": store.css(".shop-tel::text").get().split("/")[0].strip(),
-                "postcode": data.get("documents")[0].get("road_address").get("zone_no"),
-                "ref": f"{data.get('documents')[0].get('y')}-{data.get('documents')[0].get('x')}",
-                "state": data.get("documents")[0]
-                .get("address")
-                .get("region_1depth_name"),
+                "postcode": (
+                    data.get("documents")[0].get("road_address").get("zone_no")
+                    if data.get("documents")
+                    else google_geocode.get("zipcode")
+                ),
+                "ref": f"{data.get('documents')[0].get('y') if data.get("documents")
+                    else google_geocode.get("latitude")}-{data.get('documents')[0].get('x') if data.get("documents")
+                    else google_geocode.get("longitude")}",
+                "state": (
+                    data.get("documents")[0].get("address").get("region_1depth_name")
+                    if data.get("documents")
+                    else google_geocode.get("state")
+                ),
                 "website": self.start_urls[0],
             }
 
@@ -163,3 +190,40 @@ class SchumakerSpider(scrapy.Spider):
             self.logger.error(
                 f"HTTP Error on {response.url} - Status: {response.status}"
             )
+
+    def geocode_address(self, address, api_key):
+        params = {"address": address, "key": api_key}
+        response = requests.get(self.google_map_api, params=params)
+        data = response.json()
+
+        if data["status"] != "OK":
+            raise Exception(f"Geocoding error: {data['status']}")
+
+        result = data["results"][0]
+        components = result["address_components"]
+        lat = result["geometry"]["location"]["lat"]
+        lng = result["geometry"]["location"]["lng"]
+
+        city = state = district = postal_code = None
+
+        for comp in components:
+            if "administrative_area_level_1" in comp["types"]:
+                state = comp["long_name"]
+            elif (
+                "administrative_area_level_2" in comp["types"]
+                or "locality" in comp["types"]
+            ):
+                city = comp["long_name"]
+            elif "sublocality_level_1" in comp["types"]:
+                district = comp["long_name"]
+            elif "postal_code" in comp["types"]:
+                postal_code = comp["long_name"]
+
+        return {
+            "address": address,
+            "state": state or district,
+            "city": city,
+            "zipcode": postal_code,
+            "latitude": lat,
+            "longitude": lng,
+        }

@@ -19,6 +19,14 @@ NEWSPIDER_MODULE = "footmart_scraper.spiders"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
+SPIDER_MIDDLEWARES = {
+    'scrapy.spidermiddlewares.offsite.OffsiteMiddleware': None,
+}
+
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware': None,  # Disable robots.txt (use with caution)
+}
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
 

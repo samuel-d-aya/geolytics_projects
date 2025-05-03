@@ -35,36 +35,41 @@ class FootmartSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse_store_url)
 
     def parse_store_url(self, response):
+        names = response.css("td.tg-ve35")
+        addresses = response.css("td.tg-i3ot")
+        links = response.css("td.tg-wo29")
 
-        stores = response.css("table > tbody > tr")
-        print(f"\n\n{len(stores)}")
+        total = min(len(names), len(addresses), len(links))
+        print(f"\n\nFound {total} stores based on matching td elements\n\n")
 
-        for store in stores:
+        for i in range(total):
+            store_name = names[i].xpath("string()").get()
 
-            if not store.css("td.tg-ve35::text").get():
-                continue
+            parts = addresses[i].xpath(".//text()").getall() if i < len(addresses) else []
+            parts = [p.strip() for p in parts if p.strip()]
 
-            print(f"\n\n{store.css("td.tg-i3ot::text").getall()}\n\n")
-            print(f"\n\n{store.css("td.tg-ve35::text").get()}\n\n")
+            store_address = parts[0] if len(parts) > 0 else None
+            store_number = parts[1] if len(parts) > 1 else None
 
-            store_name = store.css("td.tg-ve35::text").get()
-            store_address = store.css("td.tg-i3ot::text").getall()[0]
-            store_number = (
-                store.css("td.tg-i3ot::text").getall()[1]
-                if len(store.css("td.tg-i3ot::text").getall()) > 1
-                else None
-            )
+            store_url = links[i].css("a::attr(href)").get() if i < len(links) else None
 
-            store_url = store.css("td.tg-wo29 > a::attr(href)").get()
-
-            yield response.follow(
-                url=store_url,
-                meta={"name": store_name, "addr": store_address, "num": store_number},
-                callback=self.parse_more_details,
-            )
+            if store_url:
+                yield response.follow(
+                    url=store_url,
+                    meta={"name": store_name, "addr": store_address, "num": store_number},
+                    callback=self.parse_more_details,
+                )
+            else:
+                # Use unique dummy URL to prevent Scrapy filtering out duplicate requests
+                fallback_url = f"{response.url}#store-{i}"
+                yield scrapy.Request(
+                    url=fallback_url,
+                    callback=self.parse_more_details,
+                    dont_filter=True,
+                    meta={"name": store_name, "addr": store_address, "num": store_number, "website": None},
+                )
 
     def parse_more_details(self, response):
-
         op_hr = (
             response.xpath("//p[contains(text(), '매장영업시간')]/text()")
             .get()
@@ -90,9 +95,9 @@ class FootmartSpider(scrapy.Spider):
         self.logger.info(f"\n\n{data}\n\n")
 
         if not data.get("documents"):
-            location = self.geolocator.geocode("addr")
-            lat = location.latitude
-            lon = location.longitude
+            location = self.geolocator.geocode(response.meta.get("addr"))
+            lat = location.latitude if location else None
+            lon = location.longitude if location else None
         else:
             lat = data.get("documents")[0].get("y")
             lon = data.get("documents")[0].get("x")
@@ -120,8 +125,8 @@ class FootmartSpider(scrapy.Spider):
                 "brand": "Footmart",
                 "fascia": "Footmart",
                 "category": "Retail",
-                "edit_date": datetime.datetime.now().strftime("%Y%m%d"),
-                "lat_lon_source": "Third Party",
+                "edit_date": str(datetime.datetime.now().date()),
+                "lat_lon_source": "website",
             },
             "lat": lat,
             "lon": lon,
@@ -137,7 +142,7 @@ class FootmartSpider(scrapy.Spider):
                     "Sun": op_hr,
                 }
             },
-            "phone": response.meta.get("name"),
+            "phone": response.meta.get("num"),
             "postcode": (
                 (
                     data.get("documents")[0].get("road_address", {}).get("zone_no")
@@ -147,7 +152,7 @@ class FootmartSpider(scrapy.Spider):
                 if data.get("documents")
                 else None
             ),
-            "ref": response.url.split("=")[-1],
+            "ref": response.url.split("=")[-1] if "=" in response.url else response.url,
             "state": (
                 (
                     data.get("documents")[0]
@@ -161,5 +166,5 @@ class FootmartSpider(scrapy.Spider):
                 if data.get("documents")
                 else None
             ),
-            "website": response.url,
+            "website": response.meta.get("website") or response.url,
         }

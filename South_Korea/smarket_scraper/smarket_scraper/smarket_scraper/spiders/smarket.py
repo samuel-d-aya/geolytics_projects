@@ -2,14 +2,13 @@ import re
 import requests
 import datetime
 import scrapy
-from geopy.geocoders import Nominatim
 
 
 class SmarketSpider(scrapy.Spider):
     name = "smarket"
     allowed_domains = ["www.smarket.co.kr"]
     start_urls = ["https://www.smarket.co.kr/board/list.php?page="]
-    geolocator = Nominatim(user_agent=name)
+    google_map_api = "https://maps.googleapis.com/maps/api/geocode/json"
 
     headers = {
         "accept": "*/*",
@@ -104,16 +103,18 @@ class SmarketSpider(scrapy.Spider):
             self.logger.info(f"\n\n{data}\n\n")
 
             if not data.get("documents"):
-                location = self.geolocator.geocode(addr)
-                lat = location.latitude
-                lon = location.longitude
+                location = self.geocode_address(
+                    addr, "AIzaSyAgZy2MBG8jU1rOOPBWx4jN7y85rK23I7w"
+                )
+                lat = location.get("latitude")
+                lon = location.get("longitude")
             else:
                 lat = data.get("documents")[0].get("y")
                 lon = data.get("documents")[0].get("x")
 
             yield {
                 "addr_full": addr,
-                "brand": "S-market",
+                "brand": "Smarket",
                 "city": (
                     (
                         data.get("documents")[0]
@@ -131,11 +132,11 @@ class SmarketSpider(scrapy.Spider):
                 ),
                 "country": "South Korea",
                 "extras": {
-                    "brand": "S-market",
-                    "fascia": "S-market",
+                    "brand": "Smarket",
+                    "fascia": "Smarket",
                     "category": "Retail",
                     "edit_date": datetime.datetime.now().strftime("%Y%m%d"),
-                    "lat_lon_source": "Third Party",
+                    "lat_lon_source": "Google",
                 },
                 "lat": lat,
                 "lon": lon,
@@ -383,3 +384,20 @@ class SmarketSpider(scrapy.Spider):
                         result[day] = formatted_time
 
         return {"opening_hours": result}
+
+    def geocode_address(self, address, api_key):
+        params = {"address": address, "key": api_key}
+        response = requests.get(self.google_map_api, params=params)
+        data = response.json()
+
+        if data["status"] != "OK":
+            raise Exception(f"Geocoding error: {data['status']}")
+
+        result = data["results"][0]
+        lat = result["geometry"]["location"]["lat"]
+        lng = result["geometry"]["location"]["lng"]
+
+        return {
+            "latitude": lat,
+            "longitude": lng,
+        }
