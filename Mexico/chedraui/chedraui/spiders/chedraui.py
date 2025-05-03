@@ -2,46 +2,38 @@ import scrapy
 import json
 from datetime import datetime
 
+
 class ChedrauiLocatorSpider(scrapy.Spider):
     name = "chedraui"
-    allowed_domains = ["chedraui.com.mx"]
-    start_urls = [
-        "https://www.chedraui.com.mx/_v/public/graphql/v1?workspace=master&maxAge=short&appsEtag=remove&domain=store&locale=es-MX&operationName=getDocuments&variables=%7B%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22a0afff5f19e837a70f3a7af8d60f121d36a3286670e5b90d134559436fb15a7f%22%2C%22sender%22%3A%22chedrauimx.locator%401.x%22%2C%22provider%22%3A%22vtex.store-graphql%402.x%22%7D%2C%22variables%22%3A%22eyJwYWdlU2l6ZSI6NTAwLCJhY3JvbnltIjoiQ1MiLCJmaWVsZHMiOlsiYWRkcmVzcyIsImlkX3N0b3JlIiwiYmFua19hdG1zIiwiYmF0aHJvb21fY3VzdG9tZXJzIiwiY2l0eSIsImNsb3NlX2hvdXIiLCJmdWxsX25hbWUiLCJob2xpZGF5X3NjaGVkdWxlcyIsImhvbWVfZGVsaXZlcnkiLCJsYXRpdHVkZSIsImxvbmdpdHVkZSIsIm5laWdoYm9yaG9vZCIsIm9wZW5faG91ciIsIm9wdGljYWxfc2VydmljZSIsInBhY2thZ2Vfc2VydmljZSIsInBhcmtpbmdfYmlrZXMiLCJwYXJraW5nX2NhcnMiLCJwYXJraW5nX2Zvcl9kaXNhYmxlZCIsInBhcmtpbmdfbW90b3MiLCJwYXJraW5nX3BpY2t1cCIsInBheW1lbnRfcmVtaXR0YW5jZXMiLCJwYXltZW50X3NlcnZpY2VzIiwicG9zdGFsX2NvZGUiLCJzZXJ2aWNlX2ZyZWlnaHQiLCJzaG9ydF9uYW1lIiwic3RhbXBlZF90aWNrZXQiLCJzdGF0ZSIsInN0b3JlX2Zvcm1hdCIsInN0b3JlX3BpY2t1cCJdfQ%3D%3D%22%7D"
-    ]
+    allowed_domains = ["grupochedraui.com.mx"]
 
-    def parse(self, response):
-        data = response.json()
-        documents = data.get("data", {}).get("documents", [])
+    def start_requests(self):
+        for i in range(3, 40):  # from 3.json to 39.json
+            url = f"https://www.grupochedraui.com.mx/wp-content/themes/chedraui/services/select_tiendas.php/{i}.json"
+            yield scrapy.Request(url=url, callback=self.parse_store_list)
 
-        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    def parse_store_list(self, response):
+        try:
+            stores = json.loads(response.text)
+        except Exception as e:
+            self.logger.warning(f"Failed to parse JSON at {response.url}: {e}")
+            return
 
-        for doc in documents:
-            fields = {f['key']: f['value'] for f in doc.get("fields", [])}
-
-            address = fields.get("address")
-            city = fields.get("city", "").strip()
-            lat = fields.get("latitude").replace(",", ".")
-            lon = fields.get("longitude").replace(",", ".")
-            store_id = fields.get("id_store")
-            name = fields.get("full_name", "")
-            postal_code = fields.get("postal_code") or fields.get("postalCode")
-
-            open_raw = fields.get("open_hour")
-            close_raw = fields.get("close_hour")
-
-            opening_hours = {}
-            if open_raw and close_raw:
-                try:
-                    open_24 = datetime.strptime(open_raw.strip(), "%I:%M %p").strftime("%H:%M")
-                    close_24 = datetime.strptime(close_raw.strip(), "%I:%M %p").strftime("%H:%M")
-                    opening_hours = {day: f"{open_24}-{close_24}" for day in days}
-                except Exception as e:
-                    self.logger.warning(f"Time parse error: {e}")
-                    opening_hours = {}
+        for store in stores:
+            name = (store.get("tienda") or "").strip()
+            address = (store.get("direccion") or "").strip()
+            lat_raw = store.get("latitud")
+            lon_raw = store.get("longitud")
+            lat = lat_raw.replace(",", ".") if lat_raw else None
+            lon = lon_raw.replace(",", ".") if lon_raw else None
+            phone = (store.get("telefono") or "").strip()
 
             yield {
+                "name": name,
                 "addr_full": address,
-                "city": city,
+                "lat": lat,
+                "lon": lon,
+                "phone": phone,
                 "country": "Mexico",
                 "brand": "Chedraui",
                 "extras": {
@@ -49,15 +41,8 @@ class ChedrauiLocatorSpider(scrapy.Spider):
                     "fascia": "Chedraui",
                     "category": "Retail",
                     "edit_date": datetime.now().strftime("%Y%m%d"),
-                    "lat_lon_source": 'google',
+                    "lat_lon_source": 'website',
                 },
-                "lat": lat,
-                "lon": lon,
-                "opening_hours": {"opening_hours":opening_hours},
-                "phone": None,
-                "ref": store_id,
-                "postcode": postal_code,
-                "name": name,
-                "state": None,
+                "ref": f"{name}_{lat}_{lon}",
                 "website": "https://www.chedraui.com.mx/encuentra-tu-tienda",
             }
