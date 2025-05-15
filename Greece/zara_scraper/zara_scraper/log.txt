@@ -1,0 +1,668 @@
+2025-05-14 06:25:48 [scrapy.utils.log] INFO: Scrapy 2.12.0 started (bot: zara_scraper)
+2025-05-14 06:25:48 [scrapy.utils.log] INFO: Versions: lxml 5.3.1.0, libxml2 2.11.7, cssselect 1.2.0, parsel 1.10.0, w3lib 2.3.1, Twisted 24.11.0, Python 3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.1, Platform Windows-11-10.0.26100-SP0
+2025-05-14 06:25:48 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-05-14 06:25:48 [asyncio] DEBUG: Using selector: SelectSelector
+2025-05-14 06:25:48 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2025-05-14 06:25:48 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2025-05-14 06:25:48 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2025-05-14 06:25:48 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2025-05-14 06:25:48 [scrapy.extensions.telnet] INFO: Telnet Password: 98c9818e5778e3ab
+2025-05-14 06:25:48 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2025-05-14 06:25:48 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'zara_scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'zara_scraper.spiders',
+ 'SPIDER_MODULES': ['zara_scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-05-14 06:25:49 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-05-14 06:25:49 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-05-14 06:25:49 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-05-14 06:25:49 [scrapy.core.engine] INFO: Spider opened
+2025-05-14 06:25:49 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-05-14 06:25:49 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.12&lng=25.4&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.9&lng=22.43&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.1&lng=26.55&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.66&lng=20.85&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.34&lng=25.13&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.64&lng=22.93&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.62&lng=19.92&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.9&lng=22.43&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.12&lng=25.4&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.1&lng=26.55&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.66&lng=20.85&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.64&lng=22.93&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.34&lng=25.13&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.62&lng=19.92&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.51&lng=22.37&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.44&lng=24.94&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.846281&lng=25.877843&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.3804511&lng=22.9662135&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.64&lng=22.42&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.25&lng=21.73&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.3&lng=21.78&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.51327777&lng=24.015483330000002&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.51&lng=22.37&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.44&lng=24.94&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.846281&lng=25.877843&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.3804511&lng=22.9662135&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.64&lng=22.42&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.25&lng=21.73&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.3&lng=21.78&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.51327777&lng=24.015483330000002&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.466367&lng=23.596337&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=36.449046&lng=28.221906&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.040487&lng=22.111723&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.665397&lng=20.849884&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.15028&lng=24.148220000000002&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.93748&lng=24.40943&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.core.engine] DEBUG: Crawled (403) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.138122&lng=24.889473&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.466367&lng=23.596337&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=36.449046&lng=28.221906&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.040487&lng=22.111723&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:51 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.665397&lng=20.849884&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:51 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.15028&lng=24.148220000000002&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:51 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.93748&lng=24.40943&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:51 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.138122&lng=24.889473&isDonationOnly=false&skipRestrictions=true&ajax=true>: HTTP status code is not handled or not allowed
+2025-05-14 06:25:51 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-05-14 06:25:51 [scrapy.extensions.feedexport] INFO: Stored csv feed (0 items) in: output.csv
+2025-05-14 06:25:51 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 183573,
+ 'downloader/request_count': 23,
+ 'downloader/request_method_count/GET': 23,
+ 'downloader/response_bytes': 41093,
+ 'downloader/response_count': 23,
+ 'downloader/response_status_count/403': 23,
+ 'elapsed_time_seconds': 1.751303,
+ 'feedexport/success_count/FileFeedStorage': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 5, 14, 6, 25, 51, 24379, tzinfo=datetime.timezone.utc),
+ 'httperror/response_ignored_count': 23,
+ 'httperror/response_ignored_status_count/403': 23,
+ 'items_per_minute': None,
+ 'log_count/DEBUG': 28,
+ 'log_count/INFO': 34,
+ 'response_received_count': 23,
+ 'responses_per_minute': None,
+ 'scheduler/dequeued': 23,
+ 'scheduler/dequeued/memory': 23,
+ 'scheduler/enqueued': 23,
+ 'scheduler/enqueued/memory': 23,
+ 'start_time': datetime.datetime(2025, 5, 14, 6, 25, 49, 273076, tzinfo=datetime.timezone.utc)}
+2025-05-14 06:25:51 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-05-14 06:28:32 [scrapy.utils.log] INFO: Scrapy 2.12.0 started (bot: zara_scraper)
+2025-05-14 06:28:32 [scrapy.utils.log] INFO: Versions: lxml 5.3.1.0, libxml2 2.11.7, cssselect 1.2.0, parsel 1.10.0, w3lib 2.3.1, Twisted 24.11.0, Python 3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.1, Platform Windows-11-10.0.26100-SP0
+2025-05-14 06:28:32 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-05-14 06:28:32 [asyncio] DEBUG: Using selector: SelectSelector
+2025-05-14 06:28:32 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2025-05-14 06:28:32 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2025-05-14 06:28:32 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2025-05-14 06:28:32 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2025-05-14 06:28:32 [scrapy.extensions.telnet] INFO: Telnet Password: 8f861c64413c5c7b
+2025-05-14 06:28:32 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2025-05-14 06:28:32 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'zara_scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'zara_scraper.spiders',
+ 'SPIDER_MODULES': ['zara_scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-05-14 06:28:32 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-05-14 06:28:32 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-05-14 06:28:32 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-05-14 06:28:32 [scrapy.core.engine] INFO: Spider opened
+2025-05-14 06:28:32 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-05-14 06:28:32 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.34&lng=25.13&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.12&lng=25.4&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.9&lng=22.43&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.62&lng=19.92&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.66&lng=20.85&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.64&lng=22.93&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.1&lng=26.55&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara DAIDALOU & VIZANTIOU
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.34&lng=25.13&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'DAIDALOU & VIZANTIOU, 71202 HERAKLIO', 'brand': 'Zara', 'city': 'HERAKLIO', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 35.338606, 'lon': 25.134809, 'name': 'Zara DAIDALOU & VIZANTIOU', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '71202', 'ref': 3890, 'state': 'KRITI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-heraklio-dedalou-s3890'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara KAPODISTRIOU, 15
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.9&lng=22.43&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'KAPODISTRIOU, 15, 35100 LAMIA', 'brand': 'Zara', 'city': 'LAMIA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.899926, 'lon': 22.434661, 'name': 'Zara KAPODISTRIOU, 15', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '35100', 'ref': 3690, 'state': 'STEREA ELLADA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-lamia-kapodistrio-s3690'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara HARILAOU TRIKOUPI, 28
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.66&lng=20.85&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'HARILAOU TRIKOUPI, 28, 45332 IOANNINA', 'brand': 'Zara', 'city': 'IOANNINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 39.665397, 'lon': 20.849884, 'name': 'Zara HARILAOU TRIKOUPI, 28', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '45332', 'ref': 3129, 'state': 'IPIROS', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-ioannina-harilaou-trikoupi-s3129'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara HARILAOU TRIKOUPI, 17
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.66&lng=20.85&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'HARILAOU TRIKOUPI, 17, 45333 IOANNINA', 'brand': 'Zara', 'city': 'IOANNINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 39.66659, 'lon': 20.851386, 'name': 'Zara HARILAOU TRIKOUPI, 17', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '45333', 'ref': 3225, 'state': 'IPIROS', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-ioannina-harilaou-trikoupi-s3225'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara STADIOU, 32
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'STADIOU, 32, 10561 ATHINA', 'brand': 'Zara', 'city': 'ATHINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.97966111, 'lon': 23.73195277, 'name': 'Zara STADIOU, 32', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '10561', 'ref': 3337, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-athina-stadiou-and-korai-square-s3337'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara ERMOU, 47
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ERMOU, 47, 10563 ATHINA', 'brand': 'Zara', 'city': 'ATHINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.976242, 'lon': 23.729329, 'name': 'Zara ERMOU, 47', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '10563', 'ref': 341, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-athina-kapnikarea-s341'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara ERMOU, 9
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ERMOU, 9, 10563 ATHINA', 'brand': 'Zara', 'city': 'ATHINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.975726, 'lon': 23.732677, 'name': 'Zara ERMOU, 9', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '10563', 'ref': 322, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-athina-atenas-s322'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara 28TH OCTOBER, 13-17
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': '28TH OCTOBER, 13-17, 10432 ATHINA', 'brand': 'Zara', 'city': 'ATHINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.98505802, 'lon': 23.72944414, 'name': 'Zara 28TH OCTOBER, 13-17', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '10432', 'ref': 16799, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-athina-minion-s16799'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara ELEFTHERIOU VENIZELOU, 135-137
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'openingHoursException': {'datatype': 'openingHourException', 'isClosed': False, 'reason': 'OPEN'}, 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ELEFTHERIOU VENIZELOU, 135-137, 17672 KALLITHEA', 'brand': 'Zara', 'city': 'KALLITHEA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.957776, 'lon': 23.704854, 'name': 'Zara ELEFTHERIOU VENIZELOU, 135-137', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '17672', 'ref': 352, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-kallithea-kalicea-s352'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara KONSTANTINOU PALEOLOGOU, 16
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'KONSTANTINOU PALEOLOGOU, 16, 17121 NEA SMYRNI', 'brand': 'Zara', 'city': 'NEA SMYRNI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.946786, 'lon': 23.711199999999998, 'name': 'Zara KONSTANTINOU PALEOLOGOU, 16', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '17121', 'ref': 3654, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-nea-smyrni-nea-smirni-s3654'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara LEOFOROS KIFISOU, 96-98
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'LEOFOROS KIFISOU, 96-98, 12241 AIGALEO', 'brand': 'Zara', 'city': 'AIGALEO', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.980183, 'lon': 23.679472, 'name': 'Zara LEOFOROS KIFISOU, 96-98', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '12241', 'ref': 12758, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-aigaleo-river-west-s12758'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara LEOFOROS VOULIAGMENIS, 276
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'LEOFOROS VOULIAGMENIS, 276, 17343 ATHINA', 'brand': 'Zara', 'city': 'ATHINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.93945, 'lon': 23.74021, 'name': 'Zara LEOFOROS VOULIAGMENIS, 276', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '17343', 'ref': 9145, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-athina-metro-mall-s9145'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara ANDREA PAPANDREOU, 21
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ANDREA PAPANDREOU, 21, 15234 CHALANDRI', 'brand': 'Zara', 'city': 'CHALANDRI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.021607, 'lon': 23.79908, 'name': 'Zara ANDREA PAPANDREOU, 21', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '15234', 'ref': 3639, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-chalandri-andrea-papandreou-s3639'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara IRAKLIOU, 336
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'IRAKLIOU, 336, 14231 NEA IONIA', 'brand': 'Zara', 'city': 'NEA IONIA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.045569, 'lon': 23.757747000000002, 'name': 'Zara IRAKLIOU, 336', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '14231', 'ref': 3364, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-nea-ionia-irakliou-s3364'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara IRAKLIOU, 297-299
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '13:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'IRAKLIOU, 297-299, 14231 NEA IONIA', 'brand': 'Zara', 'city': 'NEA IONIA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.047026, 'lon': 23.75949, 'name': 'Zara IRAKLIOU, 297-299', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '13:00-20:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '14231', 'ref': 3695, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-nea-ionia-nea-ionia-s3695'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara KIFISIAS, 37
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'KIFISIAS, 37, 15123 MAROUSI', 'brand': 'Zara', 'city': 'MAROUSI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.034046000000004, 'lon': 23.792868, 'name': 'Zara KIFISIAS, 37', 'opening_hours': {'opening_hours': {'Wed': '10:00-21:00', 'Thu': '10:00-21:00', 'Fri': '10:00-21:00', 'Sat': '10:00-20:00', 'Sun': 'Closed-', 'Mon': '10:00-21:00', 'Tue': '10:00-21:00'}}, 'phone': '2103003864', 'postcode': '15123', 'ref': 3826, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-marousi-golden-hall-s3826'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara AKTI POSIDONOS, 2
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'AKTI POSIDONOS, 2, 18531 PIREAS', 'brand': 'Zara', 'city': 'PIREAS', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.9447234, 'lon': 23.64397659, 'name': 'Zara AKTI POSIDONOS, 2', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '18531', 'ref': 16335, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-pireas-pireas-tower-mall-s16335'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara ANDREA PAPANDREOU, 35
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ANDREA PAPANDREOU, 35, 15122 MAROUSI', 'brand': 'Zara', 'city': 'MAROUSI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.045506, 'lon': 23.790337, 'name': 'Zara ANDREA PAPANDREOU, 35', 'opening_hours': {'opening_hours': {'Wed': '10:00-21:00', 'Thu': '10:00-21:00', 'Fri': '10:00-21:00', 'Sat': '10:00-20:00', 'Sun': 'Closed-', 'Mon': '10:00-21:00', 'Tue': '10:00-21:00'}}, 'phone': '2103003864', 'postcode': '15122', 'ref': 3525, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-marousi-the-mall-athens-s3525'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara KIRIAZI, 40
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'KIRIAZI, 40, 14561 KIFISIA', 'brand': 'Zara', 'city': 'KIFISIA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.071744, 'lon': 23.813429, 'name': 'Zara KIRIAZI, 40', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '14561', 'ref': 3131, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-kifisia-kiriazi-s3131'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara METAXA, 36
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'METAXA, 36, 16674 GLYFADA', 'brand': 'Zara', 'city': 'GLYFADA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.860269, 'lon': 23.754045, 'name': 'Zara METAXA, 36', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '16674', 'ref': 3328, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-glyfada-metaxa-s3328'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara E.POULAKI, 2
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'E.POULAKI, 2, 19004 SPATA-ARTEMIDA', 'brand': 'Zara', 'city': 'SPATA-ARTEMIDA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.98503, 'lon': 23.912518, 'name': 'Zara E.POULAKI, 2', 'opening_hours': {'opening_hours': {'Wed': '10:00-21:00', 'Thu': '10:00-21:00', 'Fri': '10:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '10:00-21:00', 'Tue': '10:00-21:00'}}, 'phone': '2103003864', 'postcode': '19004', 'ref': 12109, 'state': 'ATTIKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-spata-artemida-smart-park-s12109'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara PANAGIAS TINOU
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara []
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.98&lng=23.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'PANAGIAS TINOU, 19300 ASPROPYRGOS', 'brand': 'Zara', 'city': 'ASPROPYRGOS', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.10348, 'lon': 23.5814, 'name': 'Zara PANAGIAS TINOU', 'opening_hours': {'opening_hours': {'Mon': '00:00-23:59', 'Tue': '00:00-23:59', 'Wed': '00:00-23:59', 'Thu': '00:00-23:59', 'Fri': '00:00-23:59', 'Sat': '00:00-23:59'}}, 'phone': None, 'postcode': '19300', 'ref': 15980, 'state': 'ATTIKI', 'website': None}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara GIANNITSON & KOLETTI, 61
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.64&lng=22.93&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'GIANNITSON & KOLETTI, 61, 54627 THESSALONIKI', 'brand': 'Zara', 'city': 'THESSALONIKI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 40.647055, 'lon': 22.920254, 'name': 'Zara GIANNITSON & KOLETTI, 61', 'opening_hours': {'opening_hours': {'Wed': '10:00-21:00', 'Thu': '10:00-21:00', 'Fri': '10:00-21:00', 'Sat': '10:00-20:00', 'Sun': 'Closed-', 'Mon': '10:00-21:00', 'Tue': '10:00-21:00'}}, 'phone': '2103003864', 'postcode': '54627', 'ref': 1332, 'state': 'KENTRIKI MAKEDONIA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-thessaloniki-city-gate-sk-s1332'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara TSIMISKI, 45
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.64&lng=22.93&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'TSIMISKI, 45, 54623 THESSALONIKI', 'brand': 'Zara', 'city': 'THESSALONIKI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 40.633061, 'lon': 22.9425, 'name': 'Zara TSIMISKI, 45', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '54623', 'ref': 382, 'state': 'KENTRIKI MAKEDONIA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-thessaloniki-tsimiski-s382'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara NATIONAL ROAD THESSALONIKI - MOUDANIA KM 11
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '10:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.64&lng=22.93&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'NATIONAL ROAD THESSALONIKI - MOUDANIA KM 11, 57001 PYLEA', 'brand': 'Zara', 'city': 'PYLEA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 40.557178, 'lon': 22.992368, 'name': 'Zara NATIONAL ROAD THESSALONIKI - MOUDANIA KM 11', 'opening_hours': {'opening_hours': {'Wed': '10:00-21:00', 'Thu': '10:00-21:00', 'Fri': '10:00-21:00', 'Sat': '10:00-20:00', 'Sun': 'Closed-', 'Mon': '10:00-21:00', 'Tue': '10:00-21:00'}}, 'phone': '2103003864', 'postcode': '57001', 'ref': 3495, 'state': 'KENTRIKI MAKEDONIA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-pylea-mediterranean-cosmos-s3495'}
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.44&lng=24.94&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.64&lng=22.42&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.51&lng=22.37&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.3&lng=21.78&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.25&lng=21.73&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.846281&lng=25.877843&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.51327777&lng=24.015483330000002&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.3804511&lng=22.9662135&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara ROOSEVELT, 15
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [], 'openingHoursException': {'datatype': 'openingHourException', 'isClosed': True, 'reason': 'CLOSED'}, 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.64&lng=22.42&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ROOSEVELT, 15, 41222 LARISSA', 'brand': 'Zara', 'city': 'LARISSA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 39.638201, 'lon': 22.417506, 'name': 'Zara ROOSEVELT, 15', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': 'Closed-', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '41222', 'ref': 391, 'state': 'THESSALIA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-larissa-roosevelt-s391'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara MEZONOS, 64
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'openingHoursException': {'datatype': 'openingHourException', 'isClosed': True, 'reason': 'CLOSED'}, 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.25&lng=21.73&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'MEZONOS, 64, 26221 PATRAS', 'brand': 'Zara', 'city': 'PATRAS', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.248292, 'lon': 21.736944, 'name': 'Zara MEZONOS, 64', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '26221', 'ref': 3032, 'state': 'DYTIKI ELLADA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-patras-mezonos-s3032'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara DIMOKRATIAS, 216-218
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [], 'openingHoursException': {'datatype': 'openingHourException', 'isClosed': True, 'reason': 'CLOSED'}, 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.846281&lng=25.877843&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'DIMOKRATIAS, 216-218, 68100 ALEXANDROUPOLI', 'brand': 'Zara', 'city': 'ALEXANDROUPOLI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 40.846281, 'lon': 25.877843, 'name': 'Zara DIMOKRATIAS, 216-218', 'opening_hours': {'opening_hours': {'Wed': 'Closed-', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '68100', 'ref': 3881, 'state': 'ANATOLIKI MAKEDONIA & THRAKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-alexandroupoli-dimokratia-s3881'}
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara SKALIDI, 45
+
+
+2025-05-14 06:28:33 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=35.51327777&lng=24.015483330000002&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'SKALIDI, 45, 73136 CHANIA', 'brand': 'Zara', 'city': 'CHANIA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 35.51327777, 'lon': 24.015483330000002, 'name': 'Zara SKALIDI, 45', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '73136', 'ref': 3891, 'state': 'KRITI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-chania-skalidi-s3891'}
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara IOLKOU & SOKRATOUS
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.3804511&lng=22.9662135&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'IOLKOU & SOKRATOUS, 38221 VOLOS', 'brand': 'Zara', 'city': 'VOLOS', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 39.36165833, 'lon': 22.94746944, 'name': 'Zara IOLKOU & SOKRATOUS', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '38221', 'ref': 3882, 'state': 'THESSALIA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-volos-iolkou-s3882'}
+2025-05-14 06:28:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.466367&lng=23.596337&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.040487&lng=22.111723&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.93748&lng=24.40943&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.138122&lng=24.889473&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.665397&lng=20.849884&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.15028&lng=24.148220000000002&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara ABANDON, 39
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=38.466367&lng=23.596337&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ABANDON, 39, 34100 HALKIDA', 'brand': 'Zara', 'city': 'HALKIDA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 38.466367, 'lon': 23.596337, 'name': 'Zara ABANDON, 39', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '34100', 'ref': 3640, 'state': 'STEREA ELLADA', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-halkida-abandon-s3640'}
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara ARISTOMENOUS, 31
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=37.040487&lng=22.111723&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'ARISTOMENOUS, 31, 24100 KALAMATA', 'brand': 'Zara', 'city': 'KALAMATA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 37.040487, 'lon': 22.111723, 'name': 'Zara ARISTOMENOUS, 31', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '24100', 'ref': 3968, 'state': 'PELOPONNISOS', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-kalamata-aristomenous-s3968'}
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara KARAOLI & DAGKLI, S/N
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '17:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '17:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '17:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.138122&lng=24.889473&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'KARAOLI & DAGKLI, S/N, 671 00 XANTHI', 'brand': 'Zara', 'city': 'XANTHI', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 41.138122, 'lon': 24.889473, 'name': 'Zara KARAOLI & DAGKLI, S/N', 'opening_hours': {'opening_hours': {'Wed': '09:00-17:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-17:00', 'Sun': 'Closed-', 'Mon': '09:00-17:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '671 00', 'ref': 3499, 'state': 'ANATOLIKI MAKEDONIA & THRAKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-xanthi-m.karolai-s3499'}
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara AVEROF, 6
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=40.93748&lng=24.40943&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'AVEROF, 6, 65302 KAVALA', 'brand': 'Zara', 'city': 'KAVALA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 40.93748, 'lon': 24.40943, 'name': 'Zara AVEROF, 6', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '65302', 'ref': 3606, 'state': 'ANATOLIKI MAKEDONIA & THRAKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-kavala-averof-s3606'}
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara HARILAOU TRIKOUPI, 17
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '11:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.665397&lng=20.849884&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'HARILAOU TRIKOUPI, 17, 45333 IOANNINA', 'brand': 'Zara', 'city': 'IOANNINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 39.66659, 'lon': 20.851386, 'name': 'Zara HARILAOU TRIKOUPI, 17', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': '11:00-20:00', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '45333', 'ref': 3225, 'state': 'IPIROS', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-ioannina-harilaou-trikoupi-s3225'}
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara HARILAOU TRIKOUPI, 28
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=39.665397&lng=20.849884&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'HARILAOU TRIKOUPI, 28, 45332 IOANNINA', 'brand': 'Zara', 'city': 'IOANNINA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 39.665397, 'lon': 20.849884, 'name': 'Zara HARILAOU TRIKOUPI, 28', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '45332', 'ref': 3129, 'state': 'IPIROS', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-ioannina-harilaou-trikoupi-s3129'}
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara GEORGIOU PAPANDREOU  EMMANOUIL PAPPA, 19
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '17:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '17:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '17:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=41.15028&lng=24.148220000000002&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'GEORGIOU PAPANDREOU  EMMANOUIL PAPPA, 19, 66100 DRAMA', 'brand': 'Zara', 'city': 'DRAMA', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 41.15028, 'lon': 24.148220000000002, 'name': 'Zara GEORGIOU PAPANDREOU  EMMANOUIL PAPPA, 19', 'opening_hours': {'opening_hours': {'Wed': '09:00-17:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-17:00', 'Sun': 'Closed-', 'Mon': '09:00-17:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '66100', 'ref': 9086, 'state': 'ANATOLIKI MAKEDONIA & THRAKI', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-drama-zervou-s9086'}
+2025-05-14 06:28:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.zara.com/gr/en/stores-locator/extended/search?lat=36.449046&lng=28.221906&isDonationOnly=false&skipRestrictions=true&ajax=true> (referer: https://www.zara.com/gr/en/z-stores-st1404.html)
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara LAMBRAKI, 40
+
+
+2025-05-14 06:28:34 [zara] INFO: 
+
+Zara [{'datatype': 'openingHours', 'date': '20250514', 'weekDay': 3, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250515', 'weekDay': 4, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250516', 'weekDay': 5, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250517', 'weekDay': 6, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '20:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250518', 'weekDay': 7, 'openingHoursInterval': [], 'open': True}, {'datatype': 'openingHours', 'date': '20250519', 'weekDay': 1, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}, {'datatype': 'openingHours', 'date': '20250520', 'weekDay': 2, 'openingHoursInterval': [{'datatype': 'openingHoursInterval', 'openTime': '09:00', 'closeTime': '21:00'}], 'open': True}]
+
+
+2025-05-14 06:28:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.zara.com/gr/en/stores-locator/extended/search?lat=36.449046&lng=28.221906&isDonationOnly=false&skipRestrictions=true&ajax=true>
+{'addr_full': 'LAMBRAKI, 40, 85100 RODOS', 'brand': 'Zara', 'city': 'RODOS', 'country': 'Greece', 'extras': {'brand': 'Zara', 'fascia': 'Zara', 'category': 'Retail', 'edit_date': '2025-05-14', 'lat_lon_source': 'Google'}, 'lat': 36.449046, 'lon': 28.221906, 'name': 'Zara LAMBRAKI, 40', 'opening_hours': {'opening_hours': {'Wed': '09:00-21:00', 'Thu': '09:00-21:00', 'Fri': '09:00-21:00', 'Sat': '09:00-20:00', 'Sun': 'Closed-', 'Mon': '09:00-21:00', 'Tue': '09:00-21:00'}}, 'phone': '2103003864', 'postcode': '85100', 'ref': 3748, 'state': 'NOTIO AIGAIO', 'website': 'https://www.zara.com/gr/en/stores-locator/zara-rodos-lampraki-st-s3748'}
+2025-05-14 06:28:34 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-05-14 06:28:34 [scrapy.extensions.feedexport] INFO: Stored csv feed (38 items) in: output.csv
+2025-05-14 06:28:34 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 189526,
+ 'downloader/request_count': 23,
+ 'downloader/request_method_count/GET': 23,
+ 'downloader/response_bytes': 80122,
+ 'downloader/response_count': 23,
+ 'downloader/response_status_count/200': 23,
+ 'elapsed_time_seconds': 1.448982,
+ 'feedexport/success_count/FileFeedStorage': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 5, 14, 6, 28, 34, 394260, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 76134,
+ 'httpcompression/response_count': 23,
+ 'item_scraped_count': 38,
+ 'items_per_minute': None,
+ 'log_count/DEBUG': 66,
+ 'log_count/INFO': 87,
+ 'response_received_count': 23,
+ 'responses_per_minute': None,
+ 'scheduler/dequeued': 23,
+ 'scheduler/dequeued/memory': 23,
+ 'scheduler/enqueued': 23,
+ 'scheduler/enqueued/memory': 23,
+ 'start_time': datetime.datetime(2025, 5, 14, 6, 28, 32, 945278, tzinfo=datetime.timezone.utc)}
+2025-05-14 06:28:34 [scrapy.core.engine] INFO: Spider closed (finished)
