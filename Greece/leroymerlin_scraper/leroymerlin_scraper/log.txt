@@ -1,0 +1,101 @@
+2025-05-16 14:01:18 [scrapy.utils.log] INFO: Scrapy 2.12.0 started (bot: leroymerlin_scraper)
+2025-05-16 14:01:18 [scrapy.utils.log] INFO: Versions: lxml 5.3.1.0, libxml2 2.11.7, cssselect 1.2.0, parsel 1.10.0, w3lib 2.3.1, Twisted 24.11.0, Python 3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.1, Platform Windows-11-10.0.26100-SP0
+2025-05-16 14:01:18 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-05-16 14:01:18 [asyncio] DEBUG: Using selector: SelectSelector
+2025-05-16 14:01:18 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2025-05-16 14:01:18 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2025-05-16 14:01:18 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2025-05-16 14:01:18 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2025-05-16 14:01:18 [scrapy.extensions.telnet] INFO: Telnet Password: a10978004519b8db
+2025-05-16 14:01:18 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2025-05-16 14:01:18 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'leroymerlin_scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'log.txt',
+ 'NEWSPIDER_MODULE': 'leroymerlin_scraper.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['leroymerlin_scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-05-16 14:01:19 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-05-16 14:01:19 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-05-16 14:01:19 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-05-16 14:01:19 [scrapy.core.engine] INFO: Spider opened
+2025-05-16 14:01:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-05-16 14:01:19 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-05-16 14:01:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/robots.txt> (referer: None)
+2025-05-16 14:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/stores> (referer: None)
+2025-05-16 14:01:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=8?v=defda3f476a1638e71dae6d945df635d> (referer: https://www.leroymerlin.gr/gr/stores)
+2025-05-16 14:01:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=8?v=defda3f476a1638e71dae6d945df635d>
+{'addr_full': ' Β. Σοφίας 112, Είσοδος parking Έβρου 31 Αθήνα ', 'brand': 'Leroy Merlin', 'city': 'Αθήνα', 'country': 'Greece', 'extras': {'brand': 'Leroy Merlin', 'fascia': 'Leroy Merlin', 'category': 'Retail', 'edit_date': '2025-05-16', 'lat_lon_source': 'Third Party'}, 'lat': 37.9835622, 'lon': 23.7567654, 'name': 'Leroy Merlin  Κατάστημα Αθήνας-Βασ. Σοφίας', 'opening_hours': {'opening_hours': {'Mon': '08:00 - 21:00', 'Tue': '08:00 - 21:00', 'Wed': '08:00 - 21:00', 'Thu': '08:00 - 21:00', 'Fri': '08:00 - 21:00', 'Sat': '08:00 - 20:00'}}, 'phone': '2111878700', 'postcode': None, 'ref': '8', 'state': None, 'website': 'https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=8?v=defda3f476a1638e71dae6d945df635d'}
+2025-05-16 14:01:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=2?v=8d9e6f2356d8bc8000d953bc76454da7> (referer: https://www.leroymerlin.gr/gr/stores)
+2025-05-16 14:01:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=5?v=87f2ae54f283d9c16a6b7f565b39f589> (referer: https://www.leroymerlin.gr/gr/stores)
+2025-05-16 14:01:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=3?v=ebeb34e5a3074b297eaebb34a6cc8d7c> (referer: https://www.leroymerlin.gr/gr/stores)
+2025-05-16 14:01:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=7?v=96599c1bce862cb33a72c1d7e7e51d91> (referer: https://www.leroymerlin.gr/gr/stores)
+2025-05-16 14:01:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=6?v=9278eebff726dced86ebf5893b7040c7> (referer: https://www.leroymerlin.gr/gr/stores)
+2025-05-16 14:01:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=4?v=f0b26b609e5f223d168e573746fe4753> (referer: https://www.leroymerlin.gr/gr/stores)
+2025-05-16 14:01:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=2?v=8d9e6f2356d8bc8000d953bc76454da7>
+{'addr_full': ' Εμπορικό Πάρκο Αεροδρομίου Ελευθέριος Βενιζέλος Αθήνα ', 'brand': 'Leroy Merlin', 'city': 'Αθήνα', 'country': 'Greece', 'extras': {'brand': 'Leroy Merlin', 'fascia': 'Leroy Merlin', 'category': 'Retail', 'edit_date': '2025-05-16', 'lat_lon_source': 'Third Party'}, 'lat': 37.9274519, 'lon': 23.9310735, 'name': 'Leroy Merlin  Κατάστημα Αθήνας-Αεροδρόμιο', 'opening_hours': {'opening_hours': {'Mon': '08:00 - 21:00', 'Tue': '08:00 - 21:00', 'Wed': '08:00 - 21:00', 'Thu': '08:00 - 21:00', 'Fri': '08:00 - 21:00', 'Sat': '08:00 - 20:00'}}, 'phone': '2103542500', 'postcode': None, 'ref': '2', 'state': None, 'website': 'https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=2?v=8d9e6f2356d8bc8000d953bc76454da7'}
+2025-05-16 14:01:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=5?v=87f2ae54f283d9c16a6b7f565b39f589>
+{'addr_full': ' Πειραιώς 165 & Ν. Φαλήρου Αθήνα ', 'brand': 'Leroy Merlin', 'city': 'Αθήνα', 'country': 'Greece', 'extras': {'brand': 'Leroy Merlin', 'fascia': 'Leroy Merlin', 'category': 'Retail', 'edit_date': '2025-05-16', 'lat_lon_source': 'Third Party'}, 'lat': 37.9548666, 'lon': 23.6718373, 'name': 'Leroy Merlin  Κατάστημα Αθήνας-Πειραιώς', 'opening_hours': {'opening_hours': {'Mon': '08:00 - 21:00', 'Tue': '08:00 - 21:00', 'Wed': '08:00 - 21:00', 'Thu': '08:00 - 21:00', 'Fri': '08:00 - 21:00', 'Sat': '08:00 - 20:00'}}, 'phone': '2112006400', 'postcode': None, 'ref': '5', 'state': None, 'website': 'https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=5?v=87f2ae54f283d9c16a6b7f565b39f589'}
+2025-05-16 14:01:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=3?v=ebeb34e5a3074b297eaebb34a6cc8d7c>
+{'addr_full': ' Λεωφόρος Κηφισού 60 & Ηρούς, 10442, Αθήνα Αθήνα ', 'brand': 'Leroy Merlin', 'city': 'Αθήνα', 'country': 'Greece', 'extras': {'brand': 'Leroy Merlin', 'fascia': 'Leroy Merlin', 'category': 'Retail', 'edit_date': '2025-05-16', 'lat_lon_source': 'Third Party'}, 'lat': 38.000204, 'lon': 23.7017383, 'name': 'Leroy Merlin  Κατάστημα Αθήνας - Κηφισός', 'opening_hours': {'opening_hours': {'Mon': '08:00 - 21:00', 'Tue': '08:00 - 21:00', 'Wed': '08:00 - 21:00', 'Thu': '08:00 - 21:00', 'Fri': '08:00 - 21:00', 'Sat': '08:00 - 20:00'}}, 'phone': '2119904900', 'postcode': None, 'ref': '3', 'state': None, 'website': 'https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=3?v=ebeb34e5a3074b297eaebb34a6cc8d7c'}
+2025-05-16 14:01:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=7?v=96599c1bce862cb33a72c1d7e7e51d91>
+{'addr_full': ' Λεωφόρος Κηφισίας 73 Αθήνα ', 'brand': 'Leroy Merlin', 'city': 'Αθήνα', 'country': 'Greece', 'extras': {'brand': 'Leroy Merlin', 'fascia': 'Leroy Merlin', 'category': 'Retail', 'edit_date': '2025-05-16', 'lat_lon_source': 'Third Party'}, 'lat': 38.0119294, 'lon': 23.7451108, 'name': 'Leroy Merlin  Κατάστημα Αθήνας-Μαρούσι', 'opening_hours': {'opening_hours': {'Mon': '08:00 - 21:00', 'Tue': '08:00 - 21:00', 'Wed': '08:00 - 21:00', 'Thu': '08:00 - 21:00', 'Fri': '08:00 - 21:00', 'Sat': '08:00 - 20:00'}}, 'phone': '2111875300', 'postcode': None, 'ref': '7', 'state': None, 'website': 'https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=7?v=96599c1bce862cb33a72c1d7e7e51d91'}
+2025-05-16 14:01:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=6?v=9278eebff726dced86ebf5893b7040c7>
+{'addr_full': ' 8ο χλμ Π.Ε.Ο. Λάρισας - Αθήνας Λάρισας ', 'brand': 'Leroy Merlin', 'city': 'Λάρισας', 'country': 'Greece', 'extras': {'brand': 'Leroy Merlin', 'fascia': 'Leroy Merlin', 'category': 'Retail', 'edit_date': '2025-05-16', 'lat_lon_source': 'Third Party'}, 'lat': 39.5773232, 'lon': 22.4700893, 'name': 'Leroy Merlin  Κατάστημα Λάρισας', 'opening_hours': {'opening_hours': {'Mon': '08:00 - 21:00', 'Tue': '08:00 - 21:00', 'Wed': '08:00 - 21:00', 'Thu': '08:00 - 21:00', 'Fri': '08:00 - 21:00', 'Sat': '08:00 - 20:00'}}, 'phone': '2411222400', 'postcode': None, 'ref': '6', 'state': None, 'website': 'https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=6?v=9278eebff726dced86ebf5893b7040c7'}
+2025-05-16 14:01:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=4?v=f0b26b609e5f223d168e573746fe4753>
+{'addr_full': ' 11o χλμ. Ε.Ο. Θεσσαλονίκης Θεσσαλονίκης ', 'brand': 'Leroy Merlin', 'city': 'Θεσσαλονίκης', 'country': 'Greece', 'extras': {'brand': 'Leroy Merlin', 'fascia': 'Leroy Merlin', 'category': 'Retail', 'edit_date': '2025-05-16', 'lat_lon_source': 'Third Party'}, 'lat': 40.5536878, 'lon': 22.9803908, 'name': 'Leroy Merlin  Κατάστημα Θεσσαλονίκης', 'opening_hours': {'opening_hours': {'Mon': '08:00 - 21:00', 'Tue': '08:00 - 21:00', 'Wed': '08:00 - 21:00', 'Thu': '08:00 - 21:00', 'Fri': '08:00 - 21:00', 'Sat': '08:00 - 20:00'}}, 'phone': '2311990400', 'postcode': None, 'ref': '4', 'state': None, 'website': 'https://www.leroymerlin.gr/gr/module/metistoredetail/storedetail?id_store=4?v=f0b26b609e5f223d168e573746fe4753'}
+2025-05-16 14:01:29 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-05-16 14:01:29 [scrapy.extensions.feedexport] INFO: Stored csv feed (7 items) in: output.csv
+2025-05-16 14:01:29 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 7141,
+ 'downloader/request_count': 9,
+ 'downloader/request_method_count/GET': 9,
+ 'downloader/response_bytes': 160464,
+ 'downloader/response_count': 9,
+ 'downloader/response_status_count/200': 9,
+ 'elapsed_time_seconds': 10.446068,
+ 'feedexport/success_count/FileFeedStorage': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 5, 16, 14, 1, 29, 515614, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 1004179,
+ 'httpcompression/response_count': 8,
+ 'item_scraped_count': 7,
+ 'items_per_minute': None,
+ 'log_count/DEBUG': 21,
+ 'log_count/INFO': 11,
+ 'request_depth_max': 1,
+ 'response_received_count': 9,
+ 'responses_per_minute': None,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 8,
+ 'scheduler/dequeued/memory': 8,
+ 'scheduler/enqueued': 8,
+ 'scheduler/enqueued/memory': 8,
+ 'start_time': datetime.datetime(2025, 5, 16, 14, 1, 19, 69546, tzinfo=datetime.timezone.utc)}
+2025-05-16 14:01:29 [scrapy.core.engine] INFO: Spider closed (finished)
