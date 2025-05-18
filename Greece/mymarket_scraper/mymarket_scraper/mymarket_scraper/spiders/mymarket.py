@@ -48,7 +48,7 @@ class MymarketSpider(scrapy.Spider):
                     "brand": "My Market",
                     "fascia": "My Market",
                     "category": "Retail",
-                    "edit_date": str(datetime.datetime.now().date()),
+                    "edit_date": datetime.datetime.now().strftime("%Y%m%d"),
                     "lat_lon_source": "Third Party",
                 },
                 "lat": store.get("coordinates").get("lat"),
