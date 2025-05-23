@@ -36,7 +36,7 @@ class LeroymerlinSpider(scrapy.Spider):
                 "brand": "Leroy Merlin",
                 "fascia": "Leroy Merlin",
                 "category": "Retail",
-                "edit_date": str(datetime.datetime.now().date()),  # type: ignore
+                "edit_date": datetime.datetime.now().strftime("%Y%m%d"),  # type: ignore
                 "lat_lon_source": "Third Party",
             },
             "lat": lat_lon[0],
