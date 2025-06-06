@@ -36,20 +36,22 @@ class SmarketSpider(scrapy.Spider):
             "",
         ],
     }
-
-    variables: Dict[str, Any] = {"query": None, "brand": "S_MARKET"}
-
-    params = {
-        "operationName": "RemoteStoreSearch",
-        "variables": json.dumps(variables),
-        "extensions": '{"persistedQuery":{"version":1,"sha256Hash":"e49317e01c3a57b286fadd6f3ea47fd1d64adebb483943ba0e229307d15763b5"}}',
-    }
+    brands = ["S_MARKET", "PRISMA"]
 
     def start_requests(self) -> Iterator[Request]:
-        for url in self.start_urls:
-            full_url = url + urlencode(self.params)
+        for brand in self.brands:
+            variables: Dict[str, Any] = {"query": None, "brand": brand}
+            params = {
+                "operationName": "RemoteStoreSearch",
+                "variables": json.dumps(variables),
+                "extensions": '{"persistedQuery":{"version":1,"sha256Hash":"e49317e01c3a57b286fadd6f3ea47fd1d64adebb483943ba0e229307d15763b5"}}',
+            }
+            full_url = self.start_urls[0] + urlencode(params)
             yield scrapy.Request(
-                url=full_url, headers=self.headers, callback=self.parse
+                url=full_url,
+                headers=self.headers,
+                callback=self.parse,
+                meta={"brand": brand},
             )
 
     def parse(self, response: Response) -> Iterator[Union[Dict[str, Any], Request]]:
@@ -58,23 +60,23 @@ class SmarketSpider(scrapy.Spider):
         stores = data.get("searchStores").get("stores")
 
         for store in stores:
-
-            self.detail_params["slugAndId"][0] = store.get("slug")
-            self.detail_params["slugAndId"][1] = store.get("id")
             full_url = (
-                f"{self.detail_page_url}{store.get("slug")}/{store.get("id")}.json?"
-                + urlencode(self.detail_params)
+                f"https://www.s-kaupat.fi/myymala/{store.get("slug")}/{store.get("id")}"
             )
             yield response.follow(url=full_url, callback=self.parse_all_details)
 
         cursor = data.get("searchStores").get("cursor")
         self.logger.info(f"\n\n{cursor}\n\n")
         if cursor:
-
-            self.variables["cursor"] = cursor
+            brand = response.meta.get("brand")
+            variables: Dict[str, Any] = {
+                "query": None,
+                "brand": brand,
+                "cursor": cursor,
+            }
             params = {
                 "operationName": "RemoteStoreSearch",
-                "variables": json.dumps(self.variables),
+                "variables": json.dumps(variables),
                 "extensions": '{"persistedQuery":{"version":1,"sha256Hash":"e49317e01c3a57b286fadd6f3ea47fd1d64adebb483943ba0e229307d15763b5"}}',
             }
 
@@ -88,53 +90,57 @@ class SmarketSpider(scrapy.Spider):
         self, response: Response
     ) -> Iterator[Union[Dict[str, Any], Request]]:
 
-        page_props = json.loads(response.text)["pageProps"]
-        if "__N_REDIRECT" in page_props:
-            self.detail_params["slugAndId"][0] = response.url.split("/")[-2]
-            self.detail_params["slugAndId"][1] = response.url.split("/")[-1]
+        page_props = (
+            json.loads(response.css("#__NEXT_DATA__::text").get() or "")
+            .get("props")
+            .get("pageProps")
+        )
+        # if "__N_REDIRECT" in page_props:
+        #     self.detail_params["slugAndId"][0] = response.url.split("/")[-2]
+        #     self.detail_params["slugAndId"][1] = response.url.split("/")[-1]
 
-            full_url = (
-                f"https://www.s-kaupat.fi/_next/data/eApSa9vPGYZEe-P4GFWI9{page_props["__N_REDIRECT"]}.json?"
-                + urlencode(self.detail_params)
-            )
-            yield scrapy.Request(
-                url=full_url, headers=self.headers, callback=self.parse_all_details
-            )
-        else:
-            store = json.loads(response.text)["pageProps"]["store"]
-            location = store.get("location").get("address")
-            addr = f"{location.get("street").get("default")}, {location.get("postcode")} {location.get("postcodeName").get("default")}"
-            yield {
-                "addr_full": addr,
+        #     full_url = (
+        #         f"https://www.s-kaupat.fi/_next/data/eApSa9vPGYZEe-P4GFWI9{page_props["__N_REDIRECT"]}.json?"
+        #         + urlencode(self.detail_params)
+        #     )
+        #     yield scrapy.Request(
+        #         url=full_url, headers=self.headers, callback=self.parse_all_details
+        #     )
+        # else:
+        store = page_props.get("store")
+        location = store.get("location").get("address")
+        addr = f"{location.get("street").get("default")}, {location.get("postcode")} {location.get("postcodeName").get("default")}"
+        yield {
+            "addr_full": addr,
+            "brand": store.get("brand"),
+            "city": location.get("postcodeName").get("default"),
+            "country": "Finland",
+            "extras": {
                 "brand": store.get("brand"),
-                "city": location.get("postcodeName").get("default"),
-                "country": "Finland",
-                "extras": {
-                    "brand": store.get("brand"),
-                    "fascia": store.get("brand"),
-                    "category": "Retail",
-                    "edit_date": str(datetime.datetime.now().date()),
-                    "lat_lon_source": "Third Party",
-                },
-                "lat": store.get("location").get("coordinates").get("lat"),
-                "lon": store.get("location").get("coordinates").get("lon"),
-                "name": store.get("name"),
-                "opening_hours": self.parse_opening_hours(
-                    store.get("weeklyOpeningHours")[0].get("openingTimes")
-                ),
-                "phone": (
-                    store.get("contactInfo", {})
-                    .get("phoneNumber", {})
-                    .get("number", "")
-                    .replace(" ", "")
-                    if store.get("contactInfo", {}).get("phoneNumber", {})
-                    else None
-                ),
-                "postcode": location.get("postcode"),
-                "ref": store.get("id"),
-                "state": None,
-                "website": f"https://www.s-kaupat.fi/myymala/{store.get("slug")}/{store.get("id")}/",
-            }
+                "fascia": store.get("brand"),
+                "category": "Retail",
+                "edit_date": datetime.datetime.now().strftime("%Y%m%d"),
+                "lat_lon_source": "Third Party",
+            },
+            "lat": store.get("location").get("coordinates").get("lat"),
+            "lon": store.get("location").get("coordinates").get("lon"),
+            "name": store.get("name"),
+            "opening_hours": self.parse_opening_hours(
+                store.get("weeklyOpeningHours")[0].get("openingTimes")
+            ),
+            "phone": (
+                store.get("contactInfo", {})
+                .get("phoneNumber", {})
+                .get("number", "")
+                .replace(" ", "")
+                if store.get("contactInfo", {}).get("phoneNumber", {})
+                else None
+            ),
+            "postcode": location.get("postcode"),
+            "ref": store.get("id"),
+            "state": None,
+            "website": response.url,
+        }
 
     def parse_opening_hours(
         self, opening_hours: List[Dict[str, Any]]
